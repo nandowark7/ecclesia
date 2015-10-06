@@ -15,7 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>Ecclesia - Sistema para Igrejas</title>
 
 <!-- Bootstrap Core CSS -->
 <link
@@ -23,7 +23,8 @@
 	rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="../../../../static/bower_components/metisMenu/dist/metisMenu.min.css"
+<link
+	href="../../../../static/bower_components/metisMenu/dist/metisMenu.min.css"
 	rel="stylesheet">
 
 <!-- Timeline CSS -->
@@ -62,7 +63,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+				<a class="navbar-brand" href="index.html">Ecclesia 1.0</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -256,10 +257,10 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="index"><i class="fa fa-dashboard fa-fw"></i>
-								Dashboard</a></li>
-						<li><a href="#"><i class="fa fa-sitemap fa-fw"></i>
-								SECRETARIA<span class="fa arrow"></span></a>
+						<li><a href="#"><i class="fa fa-desktop"></i>
+								MÓDULOS DO SISTEMA</a></li>
+						<li><a href="#"><i class="fa fa-folder-open-o"></i> Secretaria<span
+								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 
 								<li><a href="#"><i class="fa fa-book"></i> Cadastros <span
@@ -272,7 +273,7 @@
 										<li><a href="#">Famílias</a></li>
 										<li><a href="#">Visitantes</a></li>
 									</ul> <!-- /.nav-third-level --></li>
-								<li><a href="#">Relatórios <span class="fa arrow"></span></a>
+								<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
 									<ul class="nav nav-third-level">
 										<li><a href="#">Congregações</a></li>
 										<li><a href="#">Membros</a></li>
@@ -286,8 +287,99 @@
 									</ul> <!-- /.nav-third-level --></li>
 							</ul> <!-- /.nav-second-level --></li>
 
+						<li><a href="#"><i class="fa fa-money"></i> Tesouraria<span
+								class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
 
+								<li><a href="#"><i class="fa fa-book"></i> Cadastros <span
+										class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Plano de Contas (DRE)</a></li>
+										<li><a href="#">Bancos e Contas</a></li>
+										<li><a href="#">Fornecedores</a></li>
+										<li><a href="#">Clientes</a></li>
+										<li><a href="#">Patrimônios</a></li>
+									</ul> <!-- /.nav-third-level --></li>
 
+								<li><a href="#">Transferências <span class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Entre Contas</a></li>
+										<li><a href="#">Ajuste de Saldo</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+
+								<li><a href="#">Lançamentos <span class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Lançamento de Receitas</a></li>
+										<li><a href="#">Lançamento de Despesas</a></li>
+										<li><a href="#">Contas á Receber</a></li>
+										<li><a href="#">Contas á Pagar</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+
+							<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Relatório de Receitas</a></li>
+										<li><a href="#">Relatório de Despesas</a></li>
+										<li><a href="#">Relatório de Resultados</a></li>
+										<li><a href="#">Extrato de Bancos e Contas</a></li>
+										<li><a href="#">Relatório de Patrimônios</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+							</ul> <!-- /.nav-second-level --></li>
+
+						<li><a href="#"><i class="fa fa-university"></i> Faculdade Teológica<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+
+								<li><a href="#"><i class="fa fa-book"></i> Cadastros<span
+										class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Cadastro de Níveis</a></li>
+										<li><a href="#">Montagem de Classe</a></li>
+										<li><a href="#">Grade Curricular</a></li>
+										<li><a href="#">Lançamento de Presença</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+
+						<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Alunos</a></li>
+										<li><a href="#">Classes</a></li>
+										<li><a href="#">Presenças</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+							</ul> <!-- /.nav-second-level --></li>
+							
+									<li><a href="#"><i class="fa fa-graduation-cap"></i> Escola Bíblica<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+
+								<li><a href="#"><i class="fa fa-book"></i> Cadastros<span
+										class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Cadastro de Escola</a></li>
+										<li><a href="#">Montagem de Classe</a></li>
+										<li><a href="#">Grade Curricular</a></li>
+										<li><a href="#">Lançamento de Presença</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+
+							<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Alunos</a></li>
+										<li><a href="#">Classes</a></li>
+										<li><a href="#">Presenças</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+							</ul> <!-- /.nav-second-level --></li>
+							
+								<li><a href="#"><i class="fa fa-archive"></i> Departamentos<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+
+								<li><a href="#"><i class="fa fa-book"></i> Cadastros<span
+										class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Tipos de Departamentos</a></li>
+										<li><a href="#">Montagem do Grupo</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+
+								<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
+									<ul class="nav nav-third-level">
+										<li><a href="#">Departamentos</a></li>
+									</ul> <!-- /.nav-third-level --></li>
+							</ul> <!-- /.nav-second-level --></li>
 
 
 					</ul>
@@ -296,17 +388,18 @@
 			</div>
 			<!-- /.navbar-static-side -->
 		</nav>
-		        <div id="page-wrapper">
-            <div class="container-fluid">
-            	<jsp:doBody></jsp:doBody>
-            </div>
-            <!-- /.container-fluid -->
-        </div>
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<jsp:doBody></jsp:doBody>
+			</div>
+			<!-- /.container-fluid -->
+		</div>
 
 	</div>
 
 	<!-- jQuery -->
-	<script src="../../../../static/bower_components/jquery/dist/jquery.min.js"></script>
+	<script
+		src="../../../../static/bower_components/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script
