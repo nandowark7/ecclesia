@@ -30,11 +30,11 @@ public class RegionalController {
 		return "pages/secretaria/cadastro/regional/cadastro";
 	}
 
-	private void populaView(Model model) {
+	/*private void populaView(Model model) {
 		List<Regional> regionais = Arrays.asList(new Regional(1L, "São Lourenço do Oeste"), new Regional(2L, "Chapecó"),
 				new Regional(3L, "Pato Branco"));
 		model.addAttribute("regionais", regionais);
 
-	}
+	}*/
 
 }

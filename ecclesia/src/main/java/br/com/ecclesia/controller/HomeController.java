@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class IndexController {
+public class HomeController {
 	
 	@RequestMapping("/")  //retorna index
 	public String index(){

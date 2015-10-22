@@ -1,30 +1,31 @@
 package br.com.ecclesia.model.secretaria;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="regional")
-public class Regional implements Serializable{
-	
+@Table(name="cidade")
+public class Cidade implements Serializable{
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	
 	private String nome;
+	private String uf;
 	
-	@ManyToOne
-	@JoinColumn(name="codigo_cidade")
-	private Cidade cidade;
+	@OneToMany(mappedBy="cidade")
+	private List<Regional> regionais;
 
 	public Long getCodigo() {
 		return codigo;
@@ -42,12 +43,20 @@ public class Regional implements Serializable{
 		this.nome = nome;
 	}
 
-	public Cidade getCidade() {
-		return cidade;
+	public String getUf() {
+		return uf;
 	}
 
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public List<Regional> getRegionais() {
+		return regionais;
+	}
+
+	public void setRegionais(List<Regional> regionais) {
+		this.regionais = regionais;
 	}
 
 	@Override
@@ -66,7 +75,7 @@ public class Regional implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Regional other = (Regional) obj;
+		Cidade other = (Cidade) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -76,5 +85,4 @@ public class Regional implements Serializable{
 	}
 	
 	
-
 }

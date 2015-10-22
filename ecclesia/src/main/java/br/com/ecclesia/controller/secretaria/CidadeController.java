@@ -8,11 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.com.ecclesia.model.secretaria.Sede;
+import br.com.ecclesia.model.secretaria.Cidade;
 
 @Controller
 @RequestMapping("/secretaria/cadastro/sede")
-public class SedeController {
+public class CidadeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
@@ -25,13 +25,13 @@ public class SedeController {
 		return "pages/secretaria/cadastro/sede/cadastro";
 	}
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String inserir(Sede Sede) {
+	public String inserir(Cidade Sede) {
 		System.out.println(Sede);
 		return "pages/secretaria/cadastro/sede/cadastro";
 	}
 
 	private void populaView(Model model) {
-		List<Sede> sedes = Arrays.asList(new Sede(1L, "São Lourenço do Oeste"));
+		List<Cidade> sedes = Arrays.asList(new Cidade(1L, "São Lourenço do Oeste"));
 		model.addAttribute("sedes", sedes);
 
 	}
