@@ -266,8 +266,8 @@
 								<li><a href="#"><i class="fa fa-book"></i> Cadastros <span
 										class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
+										<li><a href="/secretaria/cadastro/cidade/">Cidades</a></li>
 										<li><a href="/secretaria/cadastro/regional/">Regionais</a></li>
-										<li><a href="/secretaria/cadastro/sede/">Sede</a></li>
 										<li><a href="#">Congregações</a></li>
 										<li><a href="#">Membros</a></li>
 										<li><a href="#">Famílias</a></li>

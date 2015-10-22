@@ -7,7 +7,7 @@
 	<jsp:body>
 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">Cadastro de Sede</h2>
+                        <h2 class="page-header">Cadastro de Regionais/Setores</h2>
                     </div>
             
                 </div>
@@ -27,10 +27,10 @@
               				</tr>
                		</thead>
                		<tbody>
-               			<c:forEach items="${sedes}" var="sede">
+               			<c:forEach items="${regionais}" var="regional">
                 			<tr>
-               					<td>${sede.id}</td>
-               					<td>${sede.nome}</td>
+               					<td>${regional.id}</td>
+               					<td>${regional.nome}</td>
                				</tr>
               				</c:forEach>
                		</tbody>

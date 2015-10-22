@@ -11,29 +11,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.ecclesia.model.secretaria.Cidade;
 
 @Controller
-@RequestMapping("/secretaria/cadastro/sede")
+@RequestMapping("/secretaria/cadastro/cidade")
 public class CidadeController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
-		populaView(model);
-		return "pages/secretaria/cadastro/sede/index";
+	//	populaView(model);
+		return "pages/secretaria/cadastro/cidade/index";
 	}
 
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)
 	public String novo() {
-		return "pages/secretaria/cadastro/sede/cadastro";
+		return "pages/secretaria/cadastro/cidade/cadastro";
 	}
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String inserir(Cidade Sede) {
-		System.out.println(Sede);
-		return "pages/secretaria/cadastro/sede/cadastro";
+	public String inserir(Cidade Cidade) {
+		System.out.println(Cidade);
+		return "pages/secretaria/cadastro/cidade/cadastro";
 	}
 
-	private void populaView(Model model) {
-		List<Cidade> sedes = Arrays.asList(new Cidade(1L, "São Lourenço do Oeste"));
-		model.addAttribute("sedes", sedes);
 
-	}
 
 }

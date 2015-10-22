@@ -7,7 +7,7 @@
 	<jsp:body>
 <div class="row">
 					<div class="col-lg-12">
-						<h2 class="page-header">Nova Sede</h2>
+						<h2 class="page-header">Nova Cidade</h2>
 					</div>
 
 				</div>
@@ -17,6 +17,11 @@
 						<label for="nome">Nome</label> 
 						<input type="text" class="form-control" name="nome" id="nome"
 						placeholder="Digite um nome...">
+					</div>
+						<div class="form-group col-md-5">
+						<label for="nome">UF</label> 
+						<input type="text" class="form-control" name="uf" id="uf"
+						placeholder="Digite um UF...">
 					</div>
 					</div>
 					
