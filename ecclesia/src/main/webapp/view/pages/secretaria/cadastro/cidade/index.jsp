@@ -3,11 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 
+
 <layout:template>
 	<jsp:body>
 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">Cadastro de Cidade</h2>
+                        <h2 class="page-header">Cidades</h2>
                     </div>
             
                 </div>
@@ -28,6 +29,7 @@
               				</tr>
                		</thead>
                		<tbody>
+               		
                			
                		</tbody>
                	</table>
@@ -35,3 +37,4 @@
 
 </jsp:body>
 </layout:template>
+
