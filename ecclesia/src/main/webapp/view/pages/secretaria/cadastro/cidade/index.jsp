@@ -26,10 +26,22 @@
               					<td>Código</td>
               					<td>Nome</td>
               					<td>UF</td>
+              					<td></td>
+              					<td></td>
               				</tr>
                		</thead>
                		<tbody>
                		
+               	<c:forEach items="${cidades}" var="cidade">
+               	<tr>
+					<td>${cidade.codigo}</td>
+					<td>${cidade.nome}</td>
+					<td>${cidade.uf}</td>
+					<td><a href="/secretaria/cadastro/cidade/${cidade.codigo}">Alterar</a></td>
+					<td><a href="/secretaria/cadastro/cidade/${cidade.codigo}/excluir">Excluir</a></td>
+				</tr>	
+	
+				</c:forEach>
                			
                		</tbody>
                	</table>
