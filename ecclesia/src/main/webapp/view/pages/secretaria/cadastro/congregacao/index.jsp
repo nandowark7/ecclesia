@@ -7,32 +7,55 @@
 	<jsp:body>
 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">Cadastro de Regionais/Setores</h2>
+                        <h2 class="page-header">Congregações</h2>
                     </div>
             
                 </div>
                         <div class="row">
                     <div class="col-lg-12">
-                        <a href="novo/" class="btn btn-primary">Novo</a>
+                        <a href="novo/" class="btn btn-primary">Nova Congregação</a>
+                        <span style="padding-left:20px"></span>
+                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
+                        </br></br>
                     </div>
-            
                 </div>
                   
                 <table
 			class="table table-striped table-bordered table-hover table-responsive">
                		<thead>
               				<tr>
-              					<td>Id</td>
+              					<td>Código</td>
               					<td>Nome</td>
+              					<td>Regional</td>
+              					<td>Fone</td>
+              					<td>Endereço</td>
+              					<td>Nº</td>
+              					<td>Bairro</td>
+              					<td>CEP</td>
+              					<td>Cidade</td>
+              					<td>UF</td>
+              					<td></td>
+              					<td></td>
               				</tr>
                		</thead>
                		<tbody>
-               			<c:forEach items="${regionais}" var="regional">
+               			<c:forEach items="${congregacoes}" var="congregacao">
                 			<tr>
-               					<td>${regional.id}</td>
-               					<td>${regional.nome}</td>
+               					<td>${congregacao.codigo}</td>
+               					<td>${congregacao.nome}</td>
+               					<td>${congregacao.regional.nome}</td>
+               					<td>${congregacao.fone}</td>
+               					<td>${congregacao.endereco}</td>
+               					<td>${congregacao.numero}</td>
+               					<td>${congregacao.bairro}</td>
+								<td>${congregacao.cep}</td>
+								<td>${congregacao.regional.cidade.nome}</td>
+								<td>${congregacao.regional.cidade.uf}</td>
+               					<td><a href="/secretaria/cadastro/congregacao/${congregacao.codigo}">Alterar</a></td>
+								<td><a href="/secretaria/cadastro/congregacao/${congregacao.codigo}/excluir">Excluir</a></td>
                				</tr>
               				</c:forEach>
+              				
                		</tbody>
                	</table>
 

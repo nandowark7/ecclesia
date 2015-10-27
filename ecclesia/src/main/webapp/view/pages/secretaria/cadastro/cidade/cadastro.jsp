@@ -26,6 +26,7 @@
 					</div>
 				</div>
 				<form action="/secretaria/cadastro/cidade/" method="post">
+				
 				<div class="row">
 					<div class="form-group col-md-5">
 						<label for="nome">Nome</label> 
@@ -33,16 +34,19 @@
 						placeholder="Digite um nome..." value="${cidade.nome}">
 						<form:errors path="cidade.nome"/>
 					</div>
-						<div class="form-group col-md-5">
+					
+					<div class="form-group col-md-5">
 						<label for="nome">UF</label> 
 						<input type="text" class="form-control" name="uf" id="uf"
 						placeholder="Digite um UF..." value="${cidade.uf}">
 						<form:errors path="cidade.uf"/>
 					</div>
-					</div>
+				</div>
+					
 					<input type="hidden" value="${cidade.codigo}" name="codigo" id="codigo">
-					<button type="submit" class="btn btn-default">Confirmar</button>
-					<a href="/secretaria/cadastro/cidade/" class="btn btn-default">Voltar</a>
+					<button type="submit" class="btn btn-primary">Confirmar</button>
+					<span style="padding-left:20px"></span>
+					<a href="/secretaria/cadastro/cidade/" class="btn btn-primary">Voltar</a>
 					
 				</form>
 

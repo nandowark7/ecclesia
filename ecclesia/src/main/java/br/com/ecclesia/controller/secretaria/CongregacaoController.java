@@ -1,8 +1,5 @@
 package br.com.ecclesia.controller.secretaria;
 
-import java.util.Arrays;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,32 +11,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.ecclesia.model.secretaria.Cidade;
+import br.com.ecclesia.model.secretaria.Congregacao;
 import br.com.ecclesia.model.secretaria.Regional;
 import br.com.ecclesia.repository.secretaria.Cidades;
+import br.com.ecclesia.repository.secretaria.Congregacoes;
 import br.com.ecclesia.repository.secretaria.Regionais;
 
 @Controller
-@RequestMapping("/secretaria/cadastro/regional")
-public class RegionalController {
+@RequestMapping("/secretaria/cadastro/congregacao")
+public class CongregacaoController {
 
 	@Autowired
 	private Cidades cidadeRepository;
 
 	@Autowired
-	private Regionais repository;
+	private Regionais regionalRepository;
+	
+	@Autowired
+	private Congregacoes repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		populaView(model);
-		return "pages/secretaria/cadastro/regional/index";
+		return "pages/secretaria/cadastro/congregacao/index";
 	}
 
+	//terminar
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)
 	public String inserir(Model model) {
 		model.addAttribute("cidades", cidadeRepository.todas());
 		model.addAttribute("regional", new Regional());
-		return "pages/secretaria/cadastro/regional/cadastro";
+		return "pages/secretaria/cadastro/congregacao/cadastro";
 
 	}
 
@@ -50,14 +52,14 @@ public class RegionalController {
 	}*/
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String salvar(@Valid Regional regional, BindingResult erros, RedirectAttributes redirect, Model model) {
+	public String salvar(@Valid Congregacao congregacao, BindingResult erros, RedirectAttributes redirect, Model model) {
 		if (erros.hasErrors()) {
 			return "pages/secretaria/cadastro/regional/cadastro";
 		}
-		if (regional.getCodigo() != null) {
-			repository.alterar(regional);
+		if (congregacao.getCodigo() != null) {
+			repository.alterar(congregacao);
 		} else {
-			repository.inserir(regional);
+			repository.inserir(congregacao);
 		}
 		redirect.addFlashAttribute("mensagem", "Regional salva com sucesso");
 		return "redirect:/secretaria/cadastro/regional/";
@@ -65,9 +67,8 @@ public class RegionalController {
 
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public String alterar(@PathVariable Long codigo, Model model) {
-		model.addAttribute("cidades", cidadeRepository.todas());
-		model.addAttribute("regional", repository.findByCodigo(codigo));
-		return "pages/secretaria/cadastro/regional/cadastro";
+		model.addAttribute("congregacao", repository.findByCodigo(codigo));
+		return "pages/secretaria/cadastro/congregacao/cadastro";
 	}
 
 	@RequestMapping(value = "/{codigo}/excluir", method = RequestMethod.GET)
@@ -78,8 +79,9 @@ public class RegionalController {
 	}
 
 	private void populaView(Model model) {
-		model.addAttribute("regionais", repository.todas());
-		model.addAttribute("cidades", cidadeRepository.todas());
+		model.addAttribute("congregacoes", repository.todas());
+		model.addAttribute("regionais", regionalRepository.todas());
+		//model.addAttribute("cidades", cidadeRepository.todas());
 	}
 
 }

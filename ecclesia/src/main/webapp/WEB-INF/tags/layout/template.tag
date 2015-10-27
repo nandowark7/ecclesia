@@ -268,7 +268,7 @@
 									<ul class="nav nav-third-level">
 										<li><a href="/secretaria/cadastro/cidade/">Cidades</a></li>
 										<li><a href="/secretaria/cadastro/regional/">Regionais</a></li>
-										<li><a href="#">Congregações</a></li>
+										<li><a href="/secretaria/cadastro/congregacao/">Congregações</a></li>
 										<li><a href="#">Membros</a></li>
 										<li><a href="#">Famílias</a></li>
 										<li><a href="#">Visitantes</a></li>

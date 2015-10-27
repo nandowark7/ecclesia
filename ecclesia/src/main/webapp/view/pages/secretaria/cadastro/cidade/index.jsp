@@ -6,7 +6,7 @@
 
 <layout:template>
 	<jsp:body>
-<div class="row">
+				<div class="row">
                     <div class="col-lg-12">
                         <h2 class="page-header">Cidades</h2>
                     </div>
@@ -14,7 +14,10 @@
                 </div>
                         <div class="row">
                     <div class="col-lg-12">
-                        <a href="novo/" class="btn btn-primary">Novo</a>
+                        <a href="novo/" class="btn btn-primary">Nova Cidade</a>
+                        <span style="padding-left:20px"></span>
+                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
+                        </br></br>
                     </div>
             
                 </div>

@@ -36,7 +36,7 @@ public class CidadeController implements Serializable {
 	}
 
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)
-	public String novo() {
+	public String inserir() {
 		return "pages/secretaria/cadastro/cidade/cadastro";
 	}
 	

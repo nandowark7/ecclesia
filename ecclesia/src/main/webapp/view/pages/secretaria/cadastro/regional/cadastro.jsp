@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
 <layout:template>
@@ -14,30 +14,49 @@
 					</div>
 
 				</div>
-				<form action="/" method="post">
-				<div class="row">
-					<div class="form-group col-md-5">
-						<label for="nome">Nome</label> 
-						<input type="text" class="form-control" name="nome" id="nome"
-						placeholder="Digite um nome...">
+				
+						<div class="row">
+					<div class="col-md-12">
+						<spring:hasBindErrors name="regional">
+						<ul>
+							<c:forEach var="error" items="${errors.allErrors}">
+							<li><spring:message code="${error.code}"
+									text="${error.defaultMessage}" /></li>
+							</c:forEach>						
+						
+						</ul>
+						</spring:hasBindErrors>
 					</div>
 				</div>
-					<div class="row">
-					<div class="form-group col-md-5" >
+				
+			<form action="/secretaria/cadastro/regional/" method="post">
+				
+				<div class="row">
+					<div class="form-group col-md-4">
+						<label for="nome">Nome</label> 
+						<input type="text" class="form-control" name="nome" id="nome"
+						placeholder="Digite um nome..." value="${regional.nome}">
+						<form:errors path="regional.nome" />
+					</div>
+				
+					<div class="form-group col-md-4">
 						<label for="nome">Cidade</label> 
-						<form:select path="regional.cidade">
-           				<form:option value="0" label="Selecione uma Cidade" />
-            			<form:options items="${cidades}" itemValue="codigo"
-							itemLabel="nome" />
-        			</form:select>
+						<form:select path="regional.cidade.codigo" class="form-control">
+	           				<form:option value="0" label="Selecione uma Cidade" />
+	            			<form:options items="${cidades}" itemValue="codigo" itemLabel="nome" />
+	        			</form:select>
+	        			<form:errors path="regional.cidade"/>
 					</div>
-					</div>
+				</div>
 					
 					
 					
-					
-					<button type="submit" class="btn btn-default">Cadastrar</button>
-				</form>
+					<input type="hidden" value="${regional.codigo}" name="codigo"
+				id="codigo">
+					<button type="submit" class="btn btn-primary">Confirmar</button>
+					<span style="padding-left: 20px"></span>
+					<a href="/secretaria/cadastro/regional/" class="btn btn-primary">Voltar</a>
+			</form>
 
 
 
