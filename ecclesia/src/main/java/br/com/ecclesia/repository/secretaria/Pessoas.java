@@ -11,41 +11,42 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ecclesia.model.secretaria.Congregacao;
+import br.com.ecclesia.model.secretaria.Pessoa;
 import br.com.ecclesia.model.secretaria.Regional;
 
 @Repository
 @Transactional
-public class Congregacoes implements Serializable {
+public class Pessoas implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private EntityManager em;
 
-	public List<Congregacao> todas() {
-		Query query = em.createQuery("select c from Congregacao c");
-		return (List<Congregacao>) query.getResultList();
+	public List<Pessoa> todas() {
+		Query query = em.createQuery("select p from Pessoa p");
+		return (List<Pessoa>) query.getResultList();
 	}
 	
-	public Congregacao findByCodigo(Long codigo) {
-		return em.find(Congregacao.class, codigo);
+	public Pessoa findByCodigo(Long codigo) {
+		return em.find(Pessoa.class, codigo);
 	}
 
-	public void inserir(Congregacao congregacao) {
+	public void inserir(Pessoa pessoa) {
 		
-		em.persist(congregacao);
+		em.persist(pessoa);
 		
 	}
 	
-	public void alterar(Congregacao congregacao) {
+	public void alterar(Pessoa pessoa) {
 		
-		em.merge(congregacao);
+		em.merge(pessoa);
 		
 	}
 	
 	public void excluir(Long codigo) {
-		Congregacao congregacao = em.find(Congregacao.class, codigo);
-		em.remove(congregacao);
+		Pessoa pessoa = em.find(Pessoa.class, codigo);
+		em.remove(pessoa);
 		
 	}
 

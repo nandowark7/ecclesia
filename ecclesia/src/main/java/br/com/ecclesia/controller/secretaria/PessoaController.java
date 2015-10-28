@@ -12,14 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.ecclesia.model.secretaria.Congregacao;
+import br.com.ecclesia.model.secretaria.Pessoa;
 import br.com.ecclesia.model.secretaria.Regional;
 import br.com.ecclesia.repository.secretaria.Cidades;
 import br.com.ecclesia.repository.secretaria.Congregacoes;
+import br.com.ecclesia.repository.secretaria.Pessoas;
 import br.com.ecclesia.repository.secretaria.Regionais;
 
 @Controller
-@RequestMapping("/secretaria/cadastro/congregacao")
-public class CongregacaoController {
+@RequestMapping("/secretaria/cadastro/pessoa")
+public class PessoaController {
 
 	@Autowired
 	private Cidades cidadeRepository;
@@ -28,61 +30,61 @@ public class CongregacaoController {
 	private Regionais regionalRepository;
 	
 	@Autowired
-	private Congregacoes repository;
+	private Congregacoes congregacaoRepository;
+	
+	@Autowired
+	private Pessoas repository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		populaView(model);
-		return "pages/secretaria/cadastro/congregacao/index";
+		return "pages/secretaria/cadastro/pessoa/index";
 	}
 
 	
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)
 	public String inserir(Model model) {
-		model.addAttribute("regionais", regionalRepository.todas());
-		model.addAttribute("congregacao", new Congregacao());
-		return "pages/secretaria/cadastro/congregacao/cadastro";
+		model.addAttribute("congregacoes", congregacaoRepository.todas());
+		model.addAttribute("cidades", cidadeRepository.todas());
+		model.addAttribute("pessoa", new Pessoa());
+		return "pages/secretaria/cadastro/pessoa/cadastro";
 
 	}
 
-	/*@RequestMapping(value = "/secretaria/cadastro/regional/", method = RequestMethod.POST)
-	public String inserir(Regional regional) {
-		// System.out.println(regional);
-		return "pages/secretaria/cadastro/regional/cadastro";
-	}*/
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String salvar(@Valid Congregacao congregacao, BindingResult erros, RedirectAttributes redirect, Model model) {
+	public String salvar(@Valid Pessoa pessoa, BindingResult erros, RedirectAttributes redirect, Model model) {
 		if (erros.hasErrors()) {
-			return "pages/secretaria/cadastro/congregacao/cadastro";
+			return "pages/secretaria/cadastro/pessoa/cadastro";
 		}
-		if (congregacao.getCodigo() != null) {
-			repository.alterar(congregacao);
+		if (pessoa.getCodigo() != null) {
+			repository.alterar(pessoa);
 		} else {
-			repository.inserir(congregacao);
+			repository.inserir(pessoa);
 		}
-		redirect.addFlashAttribute("mensagem", "Congregacao salva com sucesso");
-		return "redirect:/secretaria/cadastro/congregacao/";
+		redirect.addFlashAttribute("mensagem", "Membro salvo com sucesso");
+		return "redirect:/secretaria/cadastro/pessoa/";
 	}
 
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public String alterar(@PathVariable Long codigo, Model model) {
-		model.addAttribute("regionais", regionalRepository.todas());
-		model.addAttribute("congregacao", repository.findByCodigo(codigo));
-		return "pages/secretaria/cadastro/congregacao/cadastro";
+		model.addAttribute("congregacoes", congregacaoRepository.todas());
+		model.addAttribute("cidades", cidadeRepository.todas());
+		model.addAttribute("pessoa", repository.findByCodigo(codigo));
+		return "pages/secretaria/cadastro/pessoa/cadastro";
 	}
 
 	@RequestMapping(value = "/{codigo}/excluir", method = RequestMethod.GET)
 	public String excluir(@PathVariable Long codigo, Model model) {
 		repository.excluir(codigo);
 
-		return "redirect:/secretaria/cadastro/congregacao/";
+		return "redirect:/secretaria/cadastro/pessoa/";
 	}
 
 	private void populaView(Model model) {
-		model.addAttribute("congregacoes", repository.todas());
-		model.addAttribute("regionais", regionalRepository.todas());
-		//model.addAttribute("cidades", cidadeRepository.todas());
+		model.addAttribute("pessoas", repository.todas());
+		model.addAttribute("congregacoes", congregacaoRepository.todas());
+		model.addAttribute("cidades", cidadeRepository.todas());
 	}
 
 }
