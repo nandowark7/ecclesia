@@ -26,7 +26,7 @@
               				<tr>
               					<td>Código</td>
               					<td>Nome</td>
-              					<td>Cidade</td>
+              					<td>Cidade Sede</td>
               					<td>UF</td>
               					<td></td>
               					<td></td>

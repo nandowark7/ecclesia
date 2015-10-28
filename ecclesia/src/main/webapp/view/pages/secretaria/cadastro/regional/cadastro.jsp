@@ -32,15 +32,15 @@
 			<form action="/secretaria/cadastro/regional/" method="post">
 				
 				<div class="row">
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-5">
 						<label for="nome">Nome</label> 
 						<input type="text" class="form-control" name="nome" id="nome"
 						placeholder="Digite um nome..." value="${regional.nome}">
 						<form:errors path="regional.nome" />
 					</div>
 				
-					<div class="form-group col-md-4">
-						<label for="nome">Cidade</label> 
+					<div class="form-group col-md-3">
+						<label for="nome">Cidade Sede</label> 
 						<form:select path="regional.cidade.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione uma Cidade" />
 	            			<form:options items="${cidades}" itemValue="codigo" itemLabel="nome" />

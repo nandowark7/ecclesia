@@ -39,20 +39,51 @@
 						<form:errors path="congregacao.nome" />
 					</div>
 				
-					<div class="form-group col-md-4">
-						<label for="nome">Cidade</label> 
-						<form:select path="regional.cidade.codigo" class="form-control">
-	           				<form:option value="0" label="Selecione uma Cidade" />
-	            			<form:options items="${cidades}" itemValue="codigo" itemLabel="nome" />
+					<div class="form-group col-md-3">
+						<label for="nome">Regional</label> 
+						<form:select path="congregacao.regional.codigo" class="form-control">
+	           				<form:option value="0" label="Selecione a Regional" />
+	            			<form:options items="${regionais}" itemValue="codigo" itemLabel="nome" />
 	        			</form:select>
-	        			<form:errors path="regional.cidade"/>
+	        			<form:errors path="congregacao.regional"/>
 					</div>
-				</div>
+					
+					<div class="form-group col-md-3">
+						<label for="nome">Fone</label> 
+						<input type="text" class="form-control" name="fone" id="fone"
+						placeholder="Digite o telefone..." value="${congregacao.fone}">
+						<form:errors path="congregacao.fone" />
+					</div>
+					<div class="form-group col-md-4">
+						<label for="nome">Endereço</label> 
+						<input type="text" class="form-control" name="endereco" id="endereco"
+						placeholder="Digite o endereço..." value="${congregacao.endereco}">
+						<form:errors path="congregacao.endereco" />
+					</div>
+						<div class="form-group col-md-3">
+						<label for="nome">Número</label> 
+						<input type="text" class="form-control" name="numero" id="numero"
+						placeholder="Digite o número..." value="${congregacao.numero}">
+						<form:errors path="congregacao.numero" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="nome">Bairro</label> 
+						<input type="text" class="form-control" name="bairro" id="bairro"
+						placeholder="Digite o bairro..." value="${congregacao.bairro}">
+						<form:errors path="congregacao.bairro" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="nome">CEP</label> 
+						<input type="text" class="form-control" name="cep" id="cep"
+						placeholder="Digite o CEP..." value="${congregacao.cep}">
+						<form:errors path="congregacao.cep" />
+					</div>
+					</div>
+
 					
 					
 					
-					<input type="hidden" value="${regional.codigo}" name="codigo"
-				id="codigo">
+					<input type="hidden" value="${congregacao.codigo}" name="codigo" id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left: 20px"></span>
 					<a href="/secretaria/cadastro/congregacao/" class="btn btn-primary">Voltar</a>

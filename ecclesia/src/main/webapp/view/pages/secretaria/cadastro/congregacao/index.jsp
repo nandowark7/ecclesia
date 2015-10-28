@@ -31,7 +31,6 @@
               					<td>Endereço</td>
               					<td>Nº</td>
               					<td>Bairro</td>
-              					<td>CEP</td>
               					<td>Cidade</td>
               					<td>UF</td>
               					<td></td>
@@ -48,7 +47,6 @@
                					<td>${congregacao.endereco}</td>
                					<td>${congregacao.numero}</td>
                					<td>${congregacao.bairro}</td>
-								<td>${congregacao.cep}</td>
 								<td>${congregacao.regional.cidade.nome}</td>
 								<td>${congregacao.regional.cidade.uf}</td>
                					<td><a href="/secretaria/cadastro/congregacao/${congregacao.codigo}">Alterar</a></td>

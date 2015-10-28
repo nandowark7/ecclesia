@@ -36,11 +36,11 @@ public class CongregacaoController {
 		return "pages/secretaria/cadastro/congregacao/index";
 	}
 
-	//terminar
+	
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)
 	public String inserir(Model model) {
-		model.addAttribute("cidades", cidadeRepository.todas());
-		model.addAttribute("regional", new Regional());
+		model.addAttribute("regionais", regionalRepository.todas());
+		model.addAttribute("congregacao", new Congregacao());
 		return "pages/secretaria/cadastro/congregacao/cadastro";
 
 	}
@@ -54,19 +54,20 @@ public class CongregacaoController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String salvar(@Valid Congregacao congregacao, BindingResult erros, RedirectAttributes redirect, Model model) {
 		if (erros.hasErrors()) {
-			return "pages/secretaria/cadastro/regional/cadastro";
+			return "pages/secretaria/cadastro/congregacao/cadastro";
 		}
 		if (congregacao.getCodigo() != null) {
 			repository.alterar(congregacao);
 		} else {
 			repository.inserir(congregacao);
 		}
-		redirect.addFlashAttribute("mensagem", "Regional salva com sucesso");
-		return "redirect:/secretaria/cadastro/regional/";
+		redirect.addFlashAttribute("mensagem", "Congregacao salva com sucesso");
+		return "redirect:/secretaria/cadastro/congregacao/";
 	}
 
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public String alterar(@PathVariable Long codigo, Model model) {
+		model.addAttribute("regionais", regionalRepository.todas());
 		model.addAttribute("congregacao", repository.findByCodigo(codigo));
 		return "pages/secretaria/cadastro/congregacao/cadastro";
 	}
