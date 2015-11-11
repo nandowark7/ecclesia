@@ -24,7 +24,7 @@ public class Cidade implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@NotEmpty
+	@NotEmpty (message="Campo obrigatório em branco")
 	private String nome;
 	@NotEmpty
 	private String uf;

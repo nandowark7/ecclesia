@@ -19,7 +19,7 @@
 					<div class="col-md-12">
 						<spring:hasBindErrors name="congregacao">
 						<ul>
-							<c:forEach var="error" items="${errors.allErrors}">
+							<c:forEach var="errors" items="${errors.allErrors}">
 							<li><spring:message code="${error.code}"
 									text="${error.defaultMessage}" /></li>
 							</c:forEach>						
@@ -86,7 +86,7 @@
 					<input type="hidden" value="${congregacao.codigo}" name="codigo" id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left: 20px"></span>
-					<a href="/secretaria/cadastro/congregacao/" class="btn btn-primary">Voltar</a>
+					<a href="/secretaria/cadastro/congregacao/" class="btn btn-primary">Cancelar</a>
 			</form>
 
 

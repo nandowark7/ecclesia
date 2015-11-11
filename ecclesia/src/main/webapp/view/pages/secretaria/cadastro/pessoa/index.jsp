@@ -44,7 +44,14 @@
                					<td>${pessoa.email}</td>
                					<td>${pessoa.fone}</td>
                					<td>${pessoa.congregacao.nome}</td>
-               					<td>${pessoa.situacao}</td>
+               					<td>
+               					<c:if test="${pessoa.situacao=='ATIVA'}">
+               						Ativa
+               					</c:if>
+               					<c:if test="${pessoa.situacao=='INATIVA'}">
+               						Inativa
+               					</c:if>
+               					</td>
                					<td>${pessoa.funcao}</td>
                					<td>${pessoa.grupo}</td>
                					<td><a href="/secretaria/cadastro/pessoa/${pessoa.codigo}">Detalhar</a></td>

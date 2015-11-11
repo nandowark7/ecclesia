@@ -13,7 +13,7 @@
 
 				</div>
 				<div class="row">
-					<div class="col-md-12">
+<%-- 					<div class="col-md-12">
 						<spring:hasBindErrors name="cidade">
 						<ul>
 							<c:forEach var="error" items="${errors.allErrors}">
@@ -23,7 +23,7 @@
 						
 						</ul>
 						</spring:hasBindErrors>
-					</div>
+					</div> --%>
 				</div>
 				<form action="/secretaria/cadastro/cidade/" method="post">
 				

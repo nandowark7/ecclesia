@@ -38,15 +38,15 @@ public class Pessoa implements Serializable {
 	private String fone;
 	private String celular;
 	private String email;
-	private Character sexo;
+	private Sexo sexo;
 	private String cpf;
 	private String cnpj;
 	private String inscricaoEstadual;
 	private String rg;
-	private Integer estado_civil;
-	private Integer situacao;
-	private Integer funcao;
-	private Integer grupo;
+	private Civil estado_civil;
+	private Situacao situacao;
+	private Funcao funcao;
+	private Grupo grupo;
 
 	@ManyToOne
 	@JoinColumn(name = "codigo_congregacao")
@@ -149,43 +149,45 @@ public class Pessoa implements Serializable {
 		this.email = email;
 	}
 
-	public Character getSexo() {
+	
+
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(Character sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 
-	public Integer getEstado_civil() {
+	public Civil getEstado_civil() {
 		return estado_civil;
 	}
 
-	public void setEstado_civil(Integer estado_civil) {
+	public void setEstado_civil(Civil estado_civil) {
 		this.estado_civil = estado_civil;
 	}
 
-	public Integer getSituacao() {
+	public Situacao getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(Integer situacao) {
+	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
 	}
 
-	public Integer getFuncao() {
+	public Funcao getFuncao() {
 		return funcao;
 	}
 
-	public void setFuncao(Integer funcao) {
+	public void setFuncao(Funcao funcao) {
 		this.funcao = funcao;
 	}
 
-	public Integer getGrupo() {
+	public Grupo getGrupo() {
 		return grupo;
 	}
 
-	public void setGrupo(Integer grupo) {
+	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
 	}
 

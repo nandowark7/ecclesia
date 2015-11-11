@@ -42,7 +42,7 @@
 					<div class="form-group col-md-3">
 						<label for="nome">Cidade Sede</label> 
 						<form:select path="regional.cidade.codigo" class="form-control">
-	           				<form:option value="0" label="Selecione uma Cidade" />
+	           				<form:option value="" label="Selecione uma Cidade" />
 	            			<form:options items="${cidades}" itemValue="codigo" itemLabel="nome" />
 	        			</form:select>
 	        			<form:errors path="regional.cidade"/>
@@ -54,6 +54,7 @@
 					<input type="hidden" value="${regional.codigo}" name="codigo"
 				id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
+					
 					<span style="padding-left: 20px"></span>
 					<a href="/secretaria/cadastro/regional/" class="btn btn-primary">Voltar</a>
 			</form>

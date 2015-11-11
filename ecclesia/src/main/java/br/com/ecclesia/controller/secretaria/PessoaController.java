@@ -1,5 +1,6 @@
 package br.com.ecclesia.controller.secretaria;
 
+import javax.servlet.http.Part;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.ecclesia.model.secretaria.Congregacao;
@@ -53,7 +55,8 @@ public class PessoaController {
 
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String salvar(@Valid Pessoa pessoa, BindingResult erros, RedirectAttributes redirect, Model model) {
+	public String salvar (@Valid Pessoa pessoa, BindingResult erros, RedirectAttributes redirect, Model model) {
+		
 		if (erros.hasErrors()) {
 			return "pages/secretaria/cadastro/pessoa/cadastro";
 		}

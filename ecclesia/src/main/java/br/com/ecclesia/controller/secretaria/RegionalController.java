@@ -1,8 +1,5 @@
 package br.com.ecclesia.controller.secretaria;
 
-import java.util.Arrays;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.ecclesia.model.secretaria.Cidade;
 import br.com.ecclesia.model.secretaria.Regional;
 import br.com.ecclesia.repository.secretaria.Cidades;
 import br.com.ecclesia.repository.secretaria.Regionais;
