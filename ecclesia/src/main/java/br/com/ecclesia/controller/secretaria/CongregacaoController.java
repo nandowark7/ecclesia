@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.ecclesia.model.secretaria.Congregacao;
-import br.com.ecclesia.model.secretaria.Regional;
 import br.com.ecclesia.repository.secretaria.Cidades;
 import br.com.ecclesia.repository.secretaria.Congregacoes;
 import br.com.ecclesia.repository.secretaria.Regionais;
@@ -45,12 +44,6 @@ public class CongregacaoController {
 
 	}
 
-	/*@RequestMapping(value = "/secretaria/cadastro/regional/", method = RequestMethod.POST)
-	public String inserir(Regional regional) {
-		// System.out.println(regional);
-		return "pages/secretaria/cadastro/regional/cadastro";
-	}*/
-
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String salvar(@Valid Congregacao congregacao, BindingResult erros, RedirectAttributes redirect, Model model) {
 		if (erros.hasErrors()) {
@@ -61,7 +54,7 @@ public class CongregacaoController {
 		} else {
 			repository.inserir(congregacao);
 		}
-		redirect.addFlashAttribute("mensagem", "Congregacao salva com sucesso");
+		redirect.addFlashAttribute("mensagem", "Congregação salva com sucesso");
 		return "redirect:/secretaria/cadastro/congregacao/";
 	}
 

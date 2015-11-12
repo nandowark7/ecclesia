@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.ecclesia.model.secretaria.Cidade;
 import br.com.ecclesia.model.secretaria.Regional;
 
 @Repository

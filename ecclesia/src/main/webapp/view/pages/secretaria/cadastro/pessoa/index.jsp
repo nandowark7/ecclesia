@@ -23,6 +23,7 @@
                 <table
 			class="table table-striped table-bordered table-hover table-responsive">
                		<thead>
+               		<p class="bg-sucess">${mensagem}</p>
               				<tr>
               					<td>Código</td>
               					<td>Nome</td>
@@ -52,8 +53,34 @@
                						Inativa
                					</c:if>
                					</td>
-               					<td>${pessoa.funcao}</td>
-               					<td>${pessoa.grupo}</td>
+               					<td>
+               					<c:if test="${pessoa.funcao=='PASTOR'}">
+               						Pastor
+               					</c:if>
+               					<c:if test="${pessoa.funcao=='PRESBITERO'}">
+               						Presbítero
+               					</c:if>
+               					<c:if test="${pessoa.funcao=='DIACOMO'}">
+               						Diácono
+               					</c:if>
+               					<c:if test="${pessoa.funcao=='AUXILIAR'}">
+               						Auxiliar
+               					</c:if>
+               					<c:if test="${pessoa.funcao=='PROFESSOR'}">
+               						Professor
+               					</c:if>
+               					</td>
+               					<td>
+               					<c:if test="${pessoa.grupo=='MEMBRO'}">
+               						Membro
+               					</c:if>
+               					<c:if test="${pessoa.grupo=='FUNCIONARIO'}">
+               						Funcionário
+               					</c:if>
+               					<c:if test="${pessoa.grupo=='COOPERADOR'}">
+               						Cooperador
+               					</c:if>
+               					</td>
                					<td><a href="/secretaria/cadastro/pessoa/${pessoa.codigo}">Detalhar</a></td>
 								<td><a href="/secretaria/cadastro/pessoa/${pessoa.codigo}/excluir">Excluir</a></td>
                				</tr>

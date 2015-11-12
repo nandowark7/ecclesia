@@ -23,6 +23,7 @@
                 <table
 			class="table table-striped table-bordered table-hover table-responsive">
                		<thead>
+               		<p class="bg-sucess">${mensagem}</p>
               				<tr>
               					<td>Código</td>
               					<td>Nome</td>

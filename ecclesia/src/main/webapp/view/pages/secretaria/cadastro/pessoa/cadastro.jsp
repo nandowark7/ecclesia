@@ -15,21 +15,8 @@
 
 				</div>
 				
-						<div class="row">
-					<div class="col-md-12">
-						<spring:hasBindErrors name="pessoa">
-						<ul>
-							<c:forEach var="error" items="${errors.allErrors}">
-							<li><spring:message code="${error.code}"
-									text="${error.defaultMessage}" /></li>
-							</c:forEach>						
-						
-						</ul>
-						</spring:hasBindErrors>
-					</div>
-				</div>
-				
-			<form action="/secretaria/cadastro/pessoa/" method="post" enctype="multipart/form-data">
+			<form action="/secretaria/cadastro/pessoa/" method="post"
+			enctype="multipart/form-data">
 				
 				<div class="row">
 					<div class="form-group col-md-3">
@@ -52,8 +39,9 @@
 					</div>	
 					<div class="form-group col-md-3">
 						<label for="nome">Nascimento</label> 
-						<input type="text" class="form-control" name="nascimento" id="nascimento"
-						placeholder="Digite a data nasc..." value="${pessoa.dataNascimento}">
+						<input type="text" class="form-control" name="nascimento"
+						id="nascimento" placeholder="Digite a data nasc..."
+						value="${pessoa.dataNascimento}">
 						<form:errors path="pessoa.dataNascimento" />
 					</div>
 					
@@ -69,23 +57,40 @@
 					
 					<div class="form-group col-md-3">
 						<label for="nome">Estado Civil</label> 
-						<input type="text" class="form-control" name="estado" id="estado"
-						placeholder="Digite a data nasc..." value="${pessoa.estado_civil}">
+						<form:select path="pessoa.estado_civil" class="form-control">
+							<form:option value="" label="Selecione o estado civil" />
+	           				<form:option value="SOLTEIRO" label="Solteiro" />
+	           				<form:option value="CASADO" label="Casado" />
+	           				<form:option value="SEPARADO" label="Separado" />
+	           				<form:option value="DIVORCIADO" label="Divorciado" />
+	           				<form:option value="VIUVO" label="Viuvo" />
+	           				<form:option value="UNIAO_ESTAVEL" label="União Estável" />
+	        			</form:select>
 						<form:errors path="pessoa.estado_civil" />
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Grupo</label> 
-						<input type="text" class="form-control" name="grupo" id="grupo"
-						placeholder="Selecione o Grupo..." value="${pessoa.grupo}">
+						<form:select path="pessoa.grupo" class="form-control">
+							<form:option value="" label="Selecione o Grupo..." />
+	           				<form:option value="MEMBRO" label="Membro" />
+	           				<form:option value="FUNCIONARIO" label="Funcionário" />
+	           				<form:option value="COOPERADOR" label="Cooperador" />
+	        			</form:select>
 						<form:errors path="pessoa.grupo" />
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Função</label> 
-						<input type="text" class="form-control" name="funcao" id="funcao"
-						placeholder="Selecione a Função..." value="${pessoa.funcao}">
+						<form:select path="pessoa.funcao" class="form-control">
+							<form:option value="" label="Selecione a função" />
+	           				<form:option value="PASTOR" label="Pastor" />
+	           				<form:option value="PRESBITERO" label="Presbítero" />
+	           				<form:option value="DIACOMO" label="Diácono" />
+	           				<form:option value="AUXILIAR" label="Auxiliar" />
+	           				<form:option value="PROFESSOR" label="Professor" />
+	        			</form:select>
 						<form:errors path="pessoa.funcao" />
 					</div>
-						<div class="form-group col-md-3">
+					<div class="form-group col-md-3">
 						<label for="nome">Situação</label> 
 						<form:select path="pessoa.situacao" class="form-control">
 							<form:option value="" label="Selecione a Situação" />
@@ -109,57 +114,62 @@
 					</div>
 						<div class="form-group col-md-3">
 						<label for="nome">Celular</label> 
-						<input type="text" class="form-control" name="celular" id="celular"
-						placeholder="Digite o telefone..." value="${pessoa.celular}">
+						<input type="text" class="form-control" name="celular"
+						id="celular" placeholder="Digite o telefone..."
+						value="${pessoa.celular}">
 						<form:errors path="pessoa.celular" />
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Congregação</label> 
 						<form:select path="pessoa.congregacao.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione a Congregação" />
-	            			<form:options items="${congregacoes}" itemValue="codigo" itemLabel="nome" />
+	            			<form:options items="${congregacoes}" itemValue="codigo"
+							itemLabel="nome" />
 	        			</form:select>
-	        			<form:errors path="pessoa.congregacao"/>
+	        			<form:errors path="pessoa.congregacao" />
 					</div>
 						
 					<div class="form-group col-md-3">
 						<label for="nome">Endereço</label> 
-						<input type="text" class="form-control" name="endereco" id="endereco"
-						placeholder="Digite o endereço..." value="${congregacao.endereco}">
-						<form:errors path="congregacao.endereco" />
+						<input type="text" class="form-control" name="endereco"
+						id="endereco" placeholder="Digite o endereço..."
+						value="${pessoa.endereco}">
+						<form:errors path="pessoa.endereco" />
 					</div>
 						<div class="form-group col-md-3">
 						<label for="nome">Número</label> 
 						<input type="text" class="form-control" name="numero" id="numero"
-						placeholder="Digite o número..." value="${congregacao.numero}">
-						<form:errors path="congregacao.numero" />
+						placeholder="Digite o número..." value="${pessoa.numero}">
+						<form:errors path="pessoa.numero" />
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Bairro</label> 
 						<input type="text" class="form-control" name="bairro" id="bairro"
-						placeholder="Digite o bairro..." value="${congregacao.bairro}">
-						<form:errors path="congregacao.bairro" />
+						placeholder="Digite o bairro..." value="${pessoa.bairro}">
+						<form:errors path="pessoa.bairro" />
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">CEP</label> 
 						<input type="text" class="form-control" name="cep" id="cep"
-						placeholder="Digite o CEP..." value="${congregacao.cep}">
-						<form:errors path="congregacao.cep" />
+						placeholder="Digite o CEP..." value="${pessoa.cep}">
+						<form:errors path="pessoa.cep" />
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Cidade</label> 
 						<form:select path="pessoa.cidade.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione uma Cidade" />
-	            			<form:options items="${cidades}" itemValue="codigo" itemLabel="nome" />
+	            			<form:options items="${cidades}" itemValue="codigo"
+							itemLabel="nome" />
 	        			</form:select>
-	        			<form:errors path="pessoa.cidade"/>
+	        			<form:errors path="pessoa.cidade" />
 					</div>
 					</div>
 
 					
 					
 					
-					<input type="hidden" value="${congregacao.codigo}" name="codigo" id="codigo">
+					<input type="hidden" value="${pessoa.codigo}" name="codigo"
+				id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left: 20px"></span>
 					<a href="/secretaria/cadastro/pessoa/" class="btn btn-primary">Voltar</a>

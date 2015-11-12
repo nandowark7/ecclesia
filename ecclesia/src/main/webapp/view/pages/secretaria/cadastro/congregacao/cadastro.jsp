@@ -15,19 +15,6 @@
 
 				</div>
 				
-						<div class="row">
-					<div class="col-md-12">
-						<spring:hasBindErrors name="congregacao">
-						<ul>
-							<c:forEach var="errors" items="${errors.allErrors}">
-							<li><spring:message code="${error.code}"
-									text="${error.defaultMessage}" /></li>
-							</c:forEach>						
-						
-						</ul>
-						</spring:hasBindErrors>
-					</div>
-				</div>
 				
 			<form action="/secretaria/cadastro/congregacao/" method="post">
 				
@@ -37,6 +24,7 @@
 						<input type="text" class="form-control" name="nome" id="nome"
 						placeholder="Digite um nome..." value="${congregacao.nome}">
 						<form:errors path="congregacao.nome" />
+
 					</div>
 				
 					<div class="form-group col-md-3">
