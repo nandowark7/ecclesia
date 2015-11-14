@@ -1,21 +1,20 @@
-package br.com.ecclesia.model.secretaria;
+package br.com.ecclesia.model.departamentos;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+import br.com.ecclesia.model.secretaria.Congregacao;
 
 @Entity
-@Table(name="cidade")
-public class Cidade implements Serializable{
+@Table(name="departamentos")
+public class Departamento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -23,13 +22,13 @@ public class Cidade implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@NotEmpty (message="Campo obrigatório em branco")
 	private String nome;
-	@NotEmpty
-	private String uf;
 	
-	@OneToMany(mappedBy="cidade")
-	private List<Regional> regionais;
+	@ManyToOne
+	@JoinColumn(name="codigo_congregacao")
+	private Congregacao congregacao;
+	
+	private TiposDpto tipos_departamento;
 
 	public Long getCodigo() {
 		return codigo;
@@ -47,20 +46,20 @@ public class Cidade implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getUf() {
-		return uf;
+	public Congregacao getCongregacao() {
+		return congregacao;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setCongregacao(Congregacao congregacao) {
+		this.congregacao = congregacao;
 	}
 
-	public List<Regional> getRegionais() {
-		return regionais;
+	public TiposDpto getTipos_departamento() {
+		return tipos_departamento;
 	}
 
-	public void setRegionais(List<Regional> regionais) {
-		this.regionais = regionais;
+	public void setTipos_departamento(TiposDpto tipos_departamento) {
+		this.tipos_departamento = tipos_departamento;
 	}
 
 	@Override
@@ -79,7 +78,7 @@ public class Cidade implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		Departamento other = (Departamento) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -87,7 +86,5 @@ public class Cidade implements Serializable{
 			return false;
 		return true;
 	}
-
-
 	
 }

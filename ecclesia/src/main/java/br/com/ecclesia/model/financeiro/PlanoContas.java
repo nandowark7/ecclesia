@@ -1,4 +1,4 @@
-package br.com.ecclesia.model.secretaria;
+package br.com.ecclesia.model.financeiro;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,12 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-
 @Entity
-@Table(name="cidade")
-public class Cidade implements Serializable{
+@Table(name="plano_contas")
+public class PlanoContas implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -23,13 +20,14 @@ public class Cidade implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@NotEmpty (message="Campo obrigatório em branco")
 	private String nome;
-	@NotEmpty
-	private String uf;
+	private TipoPlano tipo;
 	
-	@OneToMany(mappedBy="cidade")
-	private List<Regional> regionais;
+	@OneToMany(mappedBy="plano_conta")
+	private List<Receita> receitas;
+	
+	@OneToMany(mappedBy="plano_conta")
+	private List<Despesa> despesas;
 
 	public Long getCodigo() {
 		return codigo;
@@ -47,20 +45,28 @@ public class Cidade implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getUf() {
-		return uf;
+	public TipoPlano getTipo() {
+		return tipo;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setTipo(TipoPlano tipo) {
+		this.tipo = tipo;
 	}
 
-	public List<Regional> getRegionais() {
-		return regionais;
+	public List<Receita> getReceitas() {
+		return receitas;
 	}
 
-	public void setRegionais(List<Regional> regionais) {
-		this.regionais = regionais;
+	public void setReceitas(List<Receita> receitas) {
+		this.receitas = receitas;
+	}
+
+	public List<Despesa> getDespesas() {
+		return despesas;
+	}
+
+	public void setDespesas(List<Despesa> despesas) {
+		this.despesas = despesas;
 	}
 
 	@Override
@@ -79,7 +85,7 @@ public class Cidade implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		PlanoContas other = (PlanoContas) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -87,7 +93,7 @@ public class Cidade implements Serializable{
 			return false;
 		return true;
 	}
-
-
 	
+	
+
 }
