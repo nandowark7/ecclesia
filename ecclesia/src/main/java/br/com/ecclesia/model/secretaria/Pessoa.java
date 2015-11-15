@@ -47,6 +47,15 @@ public class Pessoa implements Serializable {
 	private Situacao situacao;
 	private Funcao funcao;
 	private Grupo grupo;
+	private String responsavel;
+
+	public String getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "codigo_congregacao")

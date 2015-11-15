@@ -137,9 +137,9 @@
 										class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
 										<li><a href="/financeiro/cadastro/plano_contas/">Plano de Contas (DRE)</a></li>
-										<li><a href="#">Bancos e Contas</a></li>
-										<li><a href="#">Fornecedores</a></li>
-										<li><a href="#">Clientes</a></li>
+										<li><a href="/financeiro/cadastro/bancos_contas/">Bancos e Contas</a></li>
+										<li><a href="/financeiro/cadastro/fornecedores/">Fornecedores</a></li>
+										<li><a href="/financeiro/cadastro/clientes/">Clientes</a></li>
 										<li><a href="#">Patrimônios</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 

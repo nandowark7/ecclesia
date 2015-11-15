@@ -2,6 +2,7 @@ package br.com.ecclesia.model.financeiro;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,6 +49,17 @@ public class Despesa implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="codigo_departamento")
 	private Departamento departamentos;
+	
+	@OneToMany(mappedBy="despesa")
+	private List<DespesaParcela> despesa_parcela;
+	
+	public List<DespesaParcela> getDespesa_parcela() {
+		return despesa_parcela;
+	}
+
+	public void setDespesa_parcela(List<DespesaParcela> despesa_parcela) {
+		this.despesa_parcela = despesa_parcela;
+	}
 
 	public Long getCodigo() {
 		return codigo;
