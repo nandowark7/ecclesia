@@ -4,6 +4,7 @@
 <%@ attribute name="scriptsEspecificos" fragment="true" required="false"%>
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -135,7 +136,7 @@
 								<li><a href="#"><i class="fa fa-book"></i> Cadastros <span
 										class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="#">Plano de Contas (DRE)</a></li>
+										<li><a href="/financeiro/cadastro/plano_contas/">Plano de Contas (DRE)</a></li>
 										<li><a href="#">Bancos e Contas</a></li>
 										<li><a href="#">Fornecedores</a></li>
 										<li><a href="#">Clientes</a></li>

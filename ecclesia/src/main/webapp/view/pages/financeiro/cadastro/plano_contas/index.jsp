@@ -8,14 +8,14 @@
 	<jsp:body>
 				<div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Cidades</h3>
+                        <h3 class="page-header">Plano de Contas - DRE</h3>
                     </div>
             
                 </div>
                         <div class="row">
                     <div class="col-lg-12">
-                        <a href="novo/" class="btn btn-primary">Nova Cidade</a>
-                        <span style="padding-left:20px"></span>
+                        <a href="novo/" class="btn btn-primary">Novo Plano</a>
+                        <span style="padding-left: 20px"></span>
                         <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
                         </br></br>
                     </div>
@@ -28,20 +28,29 @@
               				<tr>
               					<td>Código</td>
               					<td>Nome</td>
-              					<td>UF</td>
+              					<td>Tipo</td>
               					<td></td>
               					<td></td>
               				</tr>
                		</thead>
                		<tbody>
                		
-               	<c:forEach items="${cidades}" var="cidade">
+               	<c:forEach items="${plano}" var="plano">
                	<tr>
-					<td>${cidade.codigo}</td>
-					<td>${cidade.nome}</td>
-					<td>${cidade.uf}</td>
-					<td><a href="/secretaria/cadastro/cidade/${cidade.codigo}">Alterar</a></td>
-					<td><a href="/secretaria/cadastro/cidade/${cidade.codigo}/excluir">Excluir</a></td>
+					<td>${plano.codigo}</td>
+					<td>${plano.nome}</td>
+					<td>
+         				<c:if test="${plano.tipo=='RECEITAS'}">
+         					Receita
+         				</c:if>
+         				<c:if test="${plano.tipo=='DESPESAS'}">
+         					Despesa
+         				</c:if>
+         			</td>
+					<td><a
+							href="/financeiro/cadastro/plano_contas/${plano.codigo}">Alterar</a></td>
+					<td><a
+							href="/financeiro/cadastro/plano_contas/${plano.codigo}/excluir">Excluir</a></td>
 				</tr>	
 	
 				</c:forEach>
@@ -52,4 +61,3 @@
 
 </jsp:body>
 </layout:template>
-
