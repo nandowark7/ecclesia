@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -50,15 +51,15 @@ public class Receita implements Serializable{
 	@JoinColumn(name="codigo_departamento")
 	private Departamento departamentos;
 	
-	@OneToMany(mappedBy="receita")
-	private List<ReceitaParcela> receita_parcela;
+	@OneToMany(mappedBy="receita", cascade=CascadeType.ALL, orphanRemoval=true)
+	private List<ReceitaParcela> parcelas;
 	
-	public List<ReceitaParcela> getReceita_parcela() {
-		return receita_parcela;
+	public List<ReceitaParcela> getParcelas() {
+		return parcelas;
 	}
 
-	public void setReceita_parcela(List<ReceitaParcela> receita_parcela) {
-		this.receita_parcela = receita_parcela;
+	public void setParcelas(List<ReceitaParcela> parcelas) {
+		this.parcelas = parcelas;
 	}
 
 	public Long getCodigo() {

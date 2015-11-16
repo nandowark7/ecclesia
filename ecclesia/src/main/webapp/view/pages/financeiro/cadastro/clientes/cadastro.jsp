@@ -33,13 +33,13 @@
 					</div>	
 					<div class="form-group col-md-3">
 						<label for="nome">Inscrição Estadual</label> 
-						<input type="text" class="form-control" name="ie" id="ie"
+						<input type="text" class="form-control" name="inscricaoEstadual" id="ie"
 						placeholder="Informe a Inscrição..." value="${cliente.inscricaoEstadual}">
 						<form:errors path="cliente.inscricaoEstadual" />
 					</div>	
 					<div class="form-group col-md-3">
 						<label for="nome">Responsável/Contato</label> 
-						<input type="text" class="form-control" name="resp" id="resp" 
+						<input type="text" class="form-control" name="responsavel" id="resp" 
 						placeholder="Informe o responsável..."
 						value="${cliente.responsavel}">
 						<form:errors path="cliente.responsavel" />
@@ -69,7 +69,7 @@
 					</div>
 						<div class="form-group col-md-3">
 						<label for="nome">Fax</label> 
-						<input type="text" class="form-control" name="fax"
+						<input type="text" class="form-control" name="celular"
 						id="fax" placeholder="Digite o telefone..."
 						value="${cliente.celular}">
 						<form:errors path="cliente.celular" />
