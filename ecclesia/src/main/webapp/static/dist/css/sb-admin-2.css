@@ -27,6 +27,14 @@ body {
     }
 }
 
+.esquerda{
+	float:left;
+	width:600px;
+}
+.direita{
+	float:right;
+	width:600px;
+}
 .navbar-top-links {
     margin-right: 0;
 }

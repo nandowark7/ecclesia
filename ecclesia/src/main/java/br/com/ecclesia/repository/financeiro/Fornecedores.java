@@ -1,4 +1,4 @@
-package br.com.ecclesia.repository.secretaria;
+package br.com.ecclesia.repository.financeiro;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,21 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.ecclesia.model.secretaria.Congregacao;
 import br.com.ecclesia.model.secretaria.Pessoa;
-import br.com.ecclesia.model.secretaria.Regional;
 
 @Repository
 @Transactional
-public class Pessoas implements Serializable {
+public class Fornecedores implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Autowired
 	private EntityManager em;
 
 	public List<Pessoa> todas() {
-		Query query = em.createQuery("select p from Pessoa p where grupo in(0,1,2) or grupo is null");
+		Query query = em.createQuery("select f from Pessoa f where grupo = 3");
 		return (List<Pessoa>) query.getResultList();
 	}
 	
@@ -32,21 +30,21 @@ public class Pessoas implements Serializable {
 		return em.find(Pessoa.class, codigo);
 	}
 
-	public void inserir(Pessoa pessoa) {
+	public void inserir(Pessoa fornecedor) {
 		
-		em.persist(pessoa);
+		em.persist(fornecedor);
 		
 	}
 	
-	public void alterar(Pessoa pessoa) {
+	public void alterar(Pessoa fornecedor) {
 		
-		em.merge(pessoa);
+		em.merge(fornecedor);
 		
 	}
 	
 	public void excluir(Long codigo) {
-		Pessoa pessoa = em.find(Pessoa.class, codigo);
-		em.remove(pessoa);
+		Pessoa fornecedor = em.find(Pessoa.class, codigo);
+		em.remove(fornecedor);
 		
 	}
 

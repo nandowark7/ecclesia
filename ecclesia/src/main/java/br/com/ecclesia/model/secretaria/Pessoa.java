@@ -27,10 +27,6 @@ public class Pessoa implements Serializable {
 	private Long codigo;
 
 	private String nome;
-
-	@Lob
-	@Column(name = "foto_imagem", columnDefinition = "LONGBLOB")
-	private byte[] imagem;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
@@ -48,14 +44,6 @@ public class Pessoa implements Serializable {
 	private Funcao funcao;
 	private Grupo grupo;
 	private String responsavel;
-
-	public String getResponsavel() {
-		return responsavel;
-	}
-
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
-	}
 
 	@ManyToOne
 	@JoinColumn(name = "codigo_congregacao")
@@ -84,14 +72,6 @@ public class Pessoa implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public byte[] getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(byte[] imagem) {
-		this.imagem = imagem;
 	}
 
 	public Date getDataNascimento() {
@@ -132,6 +112,14 @@ public class Pessoa implements Serializable {
 
 	public void setRg(String rg) {
 		this.rg = rg;
+	}
+
+	public String getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
 	}
 
 	public String getFone() {

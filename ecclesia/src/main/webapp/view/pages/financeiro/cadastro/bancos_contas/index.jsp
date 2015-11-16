@@ -12,7 +12,7 @@
                     </div>
             
                 </div>
-                        <div class="row">
+                <div class="row">
                     <div class="col-lg-12">
                         <a href="novo/" class="btn btn-primary">Nova Conta</a>
                         <span style="padding-left: 20px"></span>

@@ -34,8 +34,8 @@ public class PlanoContasController implements Serializable{
 	}
 	
 	private void populaView(Model model) {
-		model.addAttribute("plano", repository.todas());
-		
+		model.addAttribute("planoR", repository.todasR());
+		model.addAttribute("planoD", repository.todasD());
 	}
 
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)

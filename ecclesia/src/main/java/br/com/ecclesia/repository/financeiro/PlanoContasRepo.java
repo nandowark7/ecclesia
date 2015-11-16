@@ -21,8 +21,13 @@ public class PlanoContasRepo implements Serializable {
 	@Autowired
 	private EntityManager em;
 	
-	public List<PlanoContas> todas() {
-		Query query = em.createQuery("select p from PlanoContas p");
+	public List<PlanoContas> todasR() {
+		Query query = em.createQuery("select p from PlanoContas p where tipo=0");
+		return (List<PlanoContas>) query.getResultList();
+	}
+	
+	public List<PlanoContas> todasD() {
+		Query query = em.createQuery("select d from PlanoContas d where tipo=1");
 		return (List<PlanoContas>) query.getResultList();
 	}
 	
