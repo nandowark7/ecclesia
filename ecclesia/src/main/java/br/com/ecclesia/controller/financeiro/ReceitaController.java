@@ -1,21 +1,36 @@
 package br.com.ecclesia.controller.financeiro;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import br.com.ecclesia.model.financeiro.BancoConta;
 import br.com.ecclesia.model.financeiro.Receita;
 import br.com.ecclesia.model.financeiro.ReceitaParcela;
 import br.com.ecclesia.repository.departamento.Departamentos;
+import br.com.ecclesia.repository.financeiro.ParcelasReceitas;
 import br.com.ecclesia.repository.financeiro.PlanoContasRepo;
 import br.com.ecclesia.repository.financeiro.Receitas;
 import br.com.ecclesia.repository.secretaria.Congregacoes;
@@ -40,6 +55,9 @@ public class ReceitaController implements Serializable{
 	@Autowired
 	private Departamentos departamentoRepository;
 	
+	@Autowired
+	private ParcelasReceitas parcelaRepository;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
@@ -48,7 +66,8 @@ public class ReceitaController implements Serializable{
 	}
 	
 	private void populaView(Model model) {
-		model.addAttribute("receita", repository.todas());
+		model.addAttribute("parcelas", parcelaRepository.todas());
+		model.addAttribute("receitas", repository.todas());
 		model.addAttribute("clientes", clienteRepository.todas2());
 		model.addAttribute("plano", planoRepository.todasR());
 		model.addAttribute("congregacoes", congregacaoRepository.todas());
@@ -73,7 +92,9 @@ public class ReceitaController implements Serializable{
 		}
 		
 		for (ReceitaParcela parcela : receita.getParcelas()) {
-			System.out.println(parcela.getDescricao());
+			if (parcela.getCodigo() < 1) {
+				parcela.setCodigo(null);
+			}
 			parcela.setReceita(receita);
 		}
 		
@@ -87,7 +108,33 @@ public class ReceitaController implements Serializable{
 
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public String alterar(@PathVariable Long codigo, Model model) {
-		model.addAttribute("receita", repository.findByCodigo(codigo));
+		Receita receita = repository.findByCodigo(codigo);
+		
+		JsonNodeFactory nodeFactory = new JsonNodeFactory(true);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		ArrayNode array = mapper.createArrayNode();
+		
+		SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy"); 
+		for (ReceitaParcela parcela : receita.getParcelas()) {
+			ObjectNode node = nodeFactory.objectNode();
+			
+			node.put("codigo", parcela.getCodigo());
+			if (parcela.getVencimento() != null) {
+				node.put("vencimento", dt.format(parcela.getVencimento()));
+			}
+			node.put("descricao", parcela.getDescricao());
+			node.put("valor", parcela.getValor());
+			node.put("acrescimo", parcela.getAcrescimo());
+			node.put("desconto", parcela.getDesconto());
+			node.put("total", parcela.getTotal());
+			
+			array.add(node);
+		}
+		
+		model.addAttribute("parcelas", array.toString());
+		
+		model.addAttribute("receita", receita);
 		return "pages/financeiro/lancamentos/receitas/cadastro";
 	}
 	

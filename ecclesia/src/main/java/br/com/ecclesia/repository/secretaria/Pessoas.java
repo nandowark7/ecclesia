@@ -24,11 +24,11 @@ public class Pessoas implements Serializable {
 	private EntityManager em;
 
 	public List<Pessoa> todas() {
-		Query query = em.createQuery("select p from Pessoa p where grupo in(0,1,2) or grupo is null");
+		Query query = em.createQuery("select p from Pessoa p where grupo in(0,1,2) or grupo is null order by nome asc");
 		return (List<Pessoa>) query.getResultList();
 	}
 	public List<Pessoa> todas2() {
-		Query query = em.createQuery("select p from Pessoa p where grupo in(0,1,2,4) or grupo is null");
+		Query query = em.createQuery("select p from Pessoa p where grupo in(0,1,2,4) or grupo is null order by nome asc");
 		return (List<Pessoa>) query.getResultList();
 	}
 	public Pessoa findByCodigo(Long codigo) {

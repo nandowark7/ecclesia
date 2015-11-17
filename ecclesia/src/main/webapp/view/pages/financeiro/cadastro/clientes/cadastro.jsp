@@ -15,8 +15,7 @@
 
 				</div>
 				
-			<form action="/financeiro/cadastro/clientes/" method="post"
-			enctype="multipart/form-data">
+			<form action="/financeiro/cadastro/clientes/" method="post"	enctype="multipart/form-data">
 				
 				<div class="row">
 					<div class="form-group col-md-3">
@@ -32,13 +31,13 @@
 						<form:errors path="cliente.cnpj" />
 					</div>	
 					<div class="form-group col-md-3">
-						<label for="nome">Inscrição Estadual</label> 
+						<label for="inscricaoEstadual">Inscrição Estadual</label> 
 						<input type="text" class="form-control" name="inscricaoEstadual" id="ie"
 						placeholder="Informe a Inscrição..." value="${cliente.inscricaoEstadual}">
 						<form:errors path="cliente.inscricaoEstadual" />
 					</div>	
 					<div class="form-group col-md-3">
-						<label for="nome">Responsável/Contato</label> 
+						<label for="responsavel">Responsável/Contato</label> 
 						<input type="text" class="form-control" name="responsavel" id="resp" 
 						placeholder="Informe o responsável..."
 						value="${cliente.responsavel}">
@@ -109,14 +108,6 @@
 	        			</form:select>
 	        			<form:errors path="cliente.cidade" />
 					</div>
-<!-- 					<div class="form-group col-md-3"> -->
-<%-- 						<form:select path="cliente.grupo" class="form-control"> --%>
-<%-- 	           				<form:option value="CLIENTE"/> --%>
-<%-- 	        			</form:select> --%>
-<%-- 						<form:errors path="cliente.grupo" /> --%>
-<!-- 					</div> -->
-					
-					
 					
 					<input type="hidden" value="${cliente.codigo}" name="codigo" id="codigo">
 					<input type="hidden" path="cliente.grupo" value="CLIENTE"" name="grupo" id="grupo"></div>

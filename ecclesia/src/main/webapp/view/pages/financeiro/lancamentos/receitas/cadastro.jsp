@@ -8,15 +8,37 @@
 	var parcelas = [];
 	var codigo = -1;
 	
+	jQuery(document).ready(function ($) {
+		parcelas = JSON.parse('${parcelas}');
+		
+		adicionarHidden();
+		adicionarGrid();
+		calculaValorTotal();
+	});
+	
 	function adicionarParcela() {
+		var valor = parseFloat($("#valor").val());
+		var acrescimo = parseFloat($("#acrescimo").val());
+		var desconto = parseFloat($("#desconto").val());
+		
+		if (!valor) {
+			valor = 0.0;
+		}
+		if (! acrescimo) {
+			acrescimo = 0.0;
+		}
+		if (!desconto) {
+			desconto = 0.0;
+		}
+		
 		var parcela = {
 			codigo: codigo,
 			descricao: $("#descricao").val(),
 			vencimento: $("#vencimento").val(),
-			valor: $("#valor").val(),
-			acrescimo: $("#acrescimo").val(),
-			desconto: $("#desconto").val(),
-			total: parseFloat($("#valor").val()) + parseFloat($("#acrescimo").val()) - parseFloat($("#desconto").val())
+			valor: valor,
+			acrescimo: acrescimo,
+			desconto: desconto,
+			total: valor + acrescimo - desconto
 		}
 		
 		parcelas.push(parcela);
@@ -27,6 +49,15 @@
 		adicionarHidden();
 		adicionarGrid();
 		calculaValorTotal();
+		limpaTela();
+	}
+	
+	function limpaTela(){
+		$("#descricao").val("");
+		$("#vencimento").val("");
+		$("#valor").val("");
+		$("#acrescimo").val("");
+		$("#desconto").val("");
 	}
 	
 	function removeHidden() {
@@ -45,6 +76,7 @@
 			$("<input>").attr({type: "hidden", id: "parcelas[" + i + "].acrescimo", name: "parcelas[" + i + "].acrescimo",}).val(parcelas[i].acrescimo).appendTo("form");
 			$("<input>").attr({type: "hidden", id: "parcelas[" + i + "].desconto", name: "parcelas[" + i + "].desconto",}).val(parcelas[i].desconto).appendTo("form");
 			$("<input>").attr({type: "hidden", id: "parcelas[" + i + "].vencimento", name: "parcelas[" + i + "].vencimento",}).val(parcelas[i].vencimento).appendTo("form");
+			$("<input>").attr({type: "hidden", id: "parcelas[" + i + "].total", name: "parcelas[" + i + "].total",}).val(parcelas[i].total).appendTo("form");
 		}
 	}
 	
@@ -79,7 +111,7 @@
 
 				</div>
 				
-				<form action="/financeiro/lancamentos/receitas/" method="post">
+				<form action="/financeiro/lancamentos/receitas/" method="post" enctype="multipart/form-data">
 				
 				<div class="row">
 					<div class="form-group col-md-1">
@@ -87,10 +119,10 @@
 						<input type="text" class="form-control" name="documento" id="documento"
 						placeholder="Doc...">
 					</div>
-					<div class="form-group col-md-1">
+					<div class="form-group col-md-2">
 						<label for="emissao">Emissão</label> 
 						<input type="text" class="form-control" name="emissao" id="emissao"
-						placeholder="Data...">
+						placeholder="Informe a Data...">
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Cliente</label> 
@@ -108,7 +140,7 @@
 							itemLabel="nome" />
 	        			</form:select>
 					</div>
-					<div class="form-group col-md-3">
+					<div class="form-group col-md-2">
 						<label for="nome">Congregação</label> 
 						<form:select path="receita.congregacoes.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione..." />
@@ -138,7 +170,7 @@
 					<div class="form-group col-md-4">
 						<label for="descricao">Descrição</label> 
 						<input type="text" class="form-control" name="descricao" id="descricao"
-						placeholder="Informe o histórico..." value="${parcela.descricao}">
+						placeholder="Informe o histórico...">
 						<form:errors path="parcela.descricao"/>
 					</div>
 					<div class="form-group col-md-2">
@@ -154,7 +186,7 @@
 					<div class="form-group col-md-2">
 						<label for="acrescimo">Acréscimo</label> 
 						<input type="text" class="form-control" id="acrescimo"
-						placeholder="Informe o acrescimo..." value="${parcela.acrescimo}">
+						placeholder="Informe o acrescimo...">
 						<form:errors path="parcela.acrescimo"/>
 					</div>
 					
@@ -162,7 +194,7 @@
 					<div class="form-group col-md-2">
 						<label for="desconto">Desconto</label> 
 						<input type="text" class="form-control" name="desconto" id="desconto"
-						placeholder="Informe o desconto..." value="${parcela.desconto}">
+						placeholder="Informe o desconto...">
 						<form:errors path="parcela.desconto"/>
 					</div>
 					</div>
@@ -198,7 +230,7 @@
 					<input type="hidden" value="${codigo}" name="codigo" id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left:20px"></span>
-					<a href="/financeiro/lancamentos/receitas/novo/" class="btn btn-primary">Cancelar</a>
+					<a href="/financeiro/lancamentos/receitas/" class="btn btn-primary">Cancelar</a>
 					
 				</form>
 

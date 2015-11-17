@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import br.com.ecclesia.model.departamentos.Departamento;
 import br.com.ecclesia.model.secretaria.Congregacao;
 import br.com.ecclesia.model.secretaria.Pessoa;
@@ -41,6 +43,7 @@ public class Receita implements Serializable{
 	private PlanoContas plano;
 	
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date emissao;
 	
 	@ManyToOne

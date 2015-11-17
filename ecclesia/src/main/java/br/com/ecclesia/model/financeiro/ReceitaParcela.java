@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="receita_parcela")
 public class ReceitaParcela implements Serializable{
@@ -27,6 +29,7 @@ public class ReceitaParcela implements Serializable{
 	@JoinColumn(name="codigo_receita")
 	private Receita receita;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date vencimento;
 	
