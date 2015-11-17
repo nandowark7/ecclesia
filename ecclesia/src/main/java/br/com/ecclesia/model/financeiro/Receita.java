@@ -38,7 +38,7 @@ public class Receita implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="codigo_plano")
-	private PlanoContas plano_conta;
+	private PlanoContas plano;
 	
 	@Temporal(TemporalType.DATE)
 	private Date emissao;
@@ -86,12 +86,12 @@ public class Receita implements Serializable{
 		this.clientes = clientes;
 	}
 
-	public PlanoContas getPlano_conta() {
-		return plano_conta;
+	public PlanoContas getPlano() {
+		return plano;
 	}
 
-	public void setPlano_conta(PlanoContas plano_conta) {
-		this.plano_conta = plano_conta;
+	public void setPlano(PlanoContas plano) {
+		this.plano = plano;
 	}
 
 	public Date getEmissao() {

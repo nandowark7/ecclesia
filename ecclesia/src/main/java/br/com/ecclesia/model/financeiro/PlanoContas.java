@@ -23,7 +23,7 @@ public class PlanoContas implements Serializable{
 	private String nome;
 	private TipoPlano tipo;
 	
-	@OneToMany(mappedBy="plano_conta")
+	@OneToMany(mappedBy="plano")
 	private List<Receita> receitas;
 	
 	@OneToMany(mappedBy="plano_conta")

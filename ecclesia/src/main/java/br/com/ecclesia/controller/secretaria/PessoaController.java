@@ -15,7 +15,6 @@ import br.com.ecclesia.model.secretaria.Pessoa;
 import br.com.ecclesia.repository.secretaria.Cidades;
 import br.com.ecclesia.repository.secretaria.Congregacoes;
 import br.com.ecclesia.repository.secretaria.Pessoas;
-import br.com.ecclesia.repository.secretaria.Regionais;
 
 @Controller
 @RequestMapping("/secretaria/cadastro/pessoa")
@@ -24,9 +23,6 @@ public class PessoaController {
 	@Autowired
 	private Cidades cidadeRepository;
 
-	@Autowired
-	private Regionais regionalRepository;
-	
 	@Autowired
 	private Congregacoes congregacaoRepository;
 	

@@ -15,7 +15,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.ecclesia.model.financeiro.Receita;
 import br.com.ecclesia.model.financeiro.ReceitaParcela;
+import br.com.ecclesia.repository.departamento.Departamentos;
+import br.com.ecclesia.repository.financeiro.PlanoContasRepo;
 import br.com.ecclesia.repository.financeiro.Receitas;
+import br.com.ecclesia.repository.secretaria.Congregacoes;
+import br.com.ecclesia.repository.secretaria.Pessoas;
 
 @Controller
 @RequestMapping("/financeiro/lancamentos/receitas/")
@@ -26,6 +30,16 @@ public class ReceitaController implements Serializable{
 	@Autowired
 	private Receitas repository;
 	
+	@Autowired
+	private Pessoas clienteRepository;
+	
+	@Autowired
+	private PlanoContasRepo planoRepository;
+	@Autowired
+	private Congregacoes congregacaoRepository;
+	@Autowired
+	private Departamentos departamentoRepository;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
@@ -35,12 +49,20 @@ public class ReceitaController implements Serializable{
 	
 	private void populaView(Model model) {
 		model.addAttribute("receita", repository.todas());
+		model.addAttribute("clientes", clienteRepository.todas2());
+		model.addAttribute("plano", planoRepository.todasR());
+		model.addAttribute("congregacoes", congregacaoRepository.todas());
+		model.addAttribute("departamentos", departamentoRepository.todas());
 		
 	}
 
 	@RequestMapping(value = "novo/", method = RequestMethod.GET)
 	public String inserir(Model model) {
 		model.addAttribute("receita", new Receita());
+		model.addAttribute("clientes", clienteRepository.todas2());
+		model.addAttribute("plano", planoRepository.todasR());
+		model.addAttribute("congregacoes", congregacaoRepository.todas());
+		model.addAttribute("departamentos", departamentoRepository.todas());
 		return "pages/financeiro/lancamentos/receitas/cadastro";
 	}
 	

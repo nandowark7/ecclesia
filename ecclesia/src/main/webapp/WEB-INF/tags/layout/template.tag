@@ -151,7 +151,7 @@
 
 								<li><a href="#">Lançamentos <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="/financeiro/lancamentos/receitas/">Lançamento de Receitas</a></li>
+										<li><a href="/financeiro/lancamentos/receitas/novo/">Lançamento de Receitas</a></li>
 										<li><a href="#">Lançamento de Despesas</a></li>
 										<li><a href="#">Contas á Receber</a></li>
 										<li><a href="#">Contas á Pagar</a></li>
