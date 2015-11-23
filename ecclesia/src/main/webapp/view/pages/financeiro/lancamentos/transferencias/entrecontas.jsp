@@ -110,7 +110,7 @@
 					</div>
 					
 					<input type="hidden" value="${cliente.codigo}" name="codigo" id="codigo">
-					<input type="hidden" path="cliente.grupo" value="CLIENTE" name="grupo" id="grupo"></div>
+					<input type="hidden" path="cliente.grupo" value="CLIENTE"" name="grupo" id="grupo"></div>
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left: 20px"></span>
 					<a href="/financeiro/cadastro/clientes/" class="btn btn-primary">Voltar</a>

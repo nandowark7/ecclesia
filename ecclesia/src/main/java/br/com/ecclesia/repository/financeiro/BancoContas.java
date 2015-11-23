@@ -25,7 +25,10 @@ public class BancoContas implements Serializable{
 		Query query = em.createQuery("select b from BancoConta b");
 		return (List<BancoConta>) query.getResultList();
 	}
-	
+	public List<BancoConta> todas2() {
+		Query query = em.createQuery("select b from BancoConta b where codigo >0");
+		return (List<BancoConta>) query.getResultList();
+	}
 	public BancoConta findByCodigo(Long codigo) {
 		return em.find(BancoConta.class, codigo);
 	}

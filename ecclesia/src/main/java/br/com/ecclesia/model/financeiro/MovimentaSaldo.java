@@ -33,9 +33,13 @@ public class MovimentaSaldo implements Serializable {
 	private Date data;
 
 	@OneToOne
-	@JoinColumn(name = "codigo_conta")
-	private BancoConta conta;
-	private Integer tipo;
+	@JoinColumn(name = "codigo_conta_Origem", referencedColumnName="codigo")
+	private BancoConta contaOrigem;
+	
+	@OneToOne
+	@JoinColumn(name = "codigo_conta_Destino", referencedColumnName="codigo")
+	private BancoConta contaDestino;
+	private TipoMovimento tipo;
 
 	public Long getCodigo() {
 		return codigo;
@@ -77,19 +81,27 @@ public class MovimentaSaldo implements Serializable {
 		this.data = data;
 	}
 
-	public BancoConta getConta() {
-		return conta;
+	public BancoConta getContaOrigem() {
+		return contaOrigem;
 	}
 
-	public void setConta(BancoConta conta) {
-		this.conta = conta;
+	public void setContaOrigem(BancoConta contaOrigem) {
+		this.contaOrigem = contaOrigem;
 	}
 
-	public Integer getTipo() {
+	public BancoConta getContaDestino() {
+		return contaDestino;
+	}
+
+	public void setContaDestino(BancoConta contaDestino) {
+		this.contaDestino = contaDestino;
+	}
+
+	public TipoMovimento getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(Integer tipo) {
+	public void setTipo(TipoMovimento tipo) {
 		this.tipo = tipo;
 	}
 
