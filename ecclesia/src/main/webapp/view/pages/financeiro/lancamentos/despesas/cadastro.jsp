@@ -5,8 +5,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-
 	var parcelas = [];
 	var codigo = -1;
 	
@@ -96,7 +94,7 @@
 	}
 	
 	function calculaValorTotal(){
-		var valor = 0.0;
+		var valor = 0.00;
 		for (var i = 0; i < parcelas.length; i++) {
 			valor += parcelas[i].total;
 		}
@@ -108,35 +106,35 @@
 	
 				<div class="row">
 					<div class="col-lg-12">
-						<h4 class="page-header">Cabeçalho da Nota</h4>
+						<h3 class="page-header">Despesa - Cabeçalho da Nota</h3>
 					</div>
 
 				</div>
 				
-				<form action="/financeiro/lancamentos/receitas/" method="post" enctype="multipart/form-data">
+				<form action="/financeiro/lancamentos/despesas/" method="post" enctype="multipart/form-data">
 				
 				<div class="row">
 					<div class="form-group col-md-1">
 						<label for="documento">Nº Doc.</label> 
 						<input type="text" class="form-control" name="documento" id="documento"
-						placeholder="Doc..." value="${receita.documento}">
+						placeholder="Doc..." value="${despesa.documento}">
 					</div>
 					<div class="form-group col-md-2">
 						<label for="emissao">Emissão</label> 
 						<input type="text" class="form-control" name="emissao" id="emissao"
-						placeholder="Informe a Data..." value="${receita.emissao}">
+						placeholder="Informe a Data..." value="${despesa.emissao}">
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">Cliente</label> 
-						<form:select path="receita.clientes.codigo" class="form-control">
-	           				<form:option value="0" label="Selecione um Cliente" />
-	            			<form:options items="${clientes}" itemValue="codigo"
+						<label for="nome">Fornecedor</label> 
+						<form:select path="despesa.fornecedor.codigo" class="form-control">
+	           				<form:option value="0" label="Selecione um Fornecedor" />
+	            			<form:options items="${fornecedor}" itemValue="codigo"
 							itemLabel="nome" />
 	        			</form:select>
 					</div>
 					<div class="form-group col-md-2">
 						<label for="nome">Plano de Contas</label> 
-						<form:select path="receita.plano.codigo" class="form-control">
+						<form:select path="despesa.plano.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione um Plano" />
 	            			<form:options items="${plano}" itemValue="codigo"
 							itemLabel="nome" />
@@ -144,7 +142,7 @@
 					</div>
 					<div class="form-group col-md-2">
 						<label for="nome">Congregação</label> 
-						<form:select path="receita.congregacoes.codigo" class="form-control">
+						<form:select path="despesa.congregacoes.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione..." />
 	            			<form:options items="${congregacoes}" itemValue="codigo"
 							itemLabel="nome" />
@@ -152,7 +150,7 @@
 					</div>
 					<div class="form-group col-md-2">
 						<label for="nome">Departamento</label> 
-						<form:select path="receita.departamentos.codigo" class="form-control">
+						<form:select path="despesa.departamentos.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione..." />
 	            			<form:options items="${departamentos}" itemValue="codigo"
 							itemLabel="nome" />
@@ -232,7 +230,7 @@
 					<input type="hidden" value="${codigo}" name="codigo" id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left:20px"></span>
-					<a href="/financeiro/lancamentos/receitas/" class="btn btn-primary">Cancelar</a>
+					<a href="/financeiro/lancamentos/despesas/" class="btn btn-primary">Cancelar</a>
 					
 				</form>
 

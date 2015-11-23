@@ -41,7 +41,7 @@ public class PessoaController {
 		model.addAttribute("congregacoes", congregacaoRepository.todas());
 		model.addAttribute("cidades", cidadeRepository.todas());
 		model.addAttribute("pessoa", new Pessoa());
-		return "pages/secretaria/cadastro/pessoa/cadastro";
+		return "pages/secretaria/cadastro/pessoa/cadastro/{codigo}";
 
 	}
 

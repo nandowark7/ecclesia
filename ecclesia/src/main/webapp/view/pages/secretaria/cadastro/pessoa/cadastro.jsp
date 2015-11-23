@@ -4,7 +4,15 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
@@ -15,8 +23,7 @@
 
 				</div>
 				
-			<form action="/secretaria/cadastro/pessoa/" method="post"
-			enctype="multipart/form-data">
+			<form action="/secretaria/cadastro/pessoa/" method="post" name= "cadPessoa" enctype="multipart/form-data">
 				
 				<div class="row">
 					<div class="form-group col-md-3">
@@ -38,9 +45,8 @@
 						<form:errors path="pessoa.rg" />
 					</div>	
 					<div class="form-group col-md-3">
-						<label for="nome">Nascimento</label> 
-						<input type="text" class="form-control" name="nascimento"
-						id="nascimento" placeholder="Digite a data nasc..."
+						<label for="dataNascimento">Nascimento</label> 
+						<input type="text" class="form-control" name="dataNascimento" OnKeyUp="mascaraData(this);" id="campoData" placeholder="Digite a data nasc..."
 						value="${pessoa.dataNascimento}">
 						<form:errors path="pessoa.dataNascimento" />
 					</div>

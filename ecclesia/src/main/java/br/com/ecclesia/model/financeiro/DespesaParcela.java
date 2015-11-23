@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="despesa_parcela")
 public class DespesaParcela implements Serializable {
@@ -27,6 +29,7 @@ public class DespesaParcela implements Serializable {
 	@JoinColumn(name="codigo_despesa")
 	private Despesa despesa;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date vencimento;
 	
@@ -40,6 +43,7 @@ public class DespesaParcela implements Serializable {
 	@JoinColumn(name="codigo_banco")
 	private BancoConta banco;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date pagamento;
 

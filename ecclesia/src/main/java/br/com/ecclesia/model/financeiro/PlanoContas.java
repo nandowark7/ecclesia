@@ -26,7 +26,7 @@ public class PlanoContas implements Serializable{
 	@OneToMany(mappedBy="plano")
 	private List<Receita> receitas;
 	
-	@OneToMany(mappedBy="plano_conta")
+	@OneToMany(mappedBy="plano")
 	private List<Despesa> despesas;
 
 	public Long getCodigo() {

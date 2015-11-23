@@ -43,6 +43,7 @@ public class ReceitaParcela implements Serializable{
 	@JoinColumn(name="codigo_banco")
 	private BancoConta banco;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date recebimento;
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import br.com.ecclesia.model.departamentos.Departamento;
 import br.com.ecclesia.model.secretaria.Congregacao;
@@ -37,8 +40,9 @@ public class Despesa implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="codigo_plano")
-	private PlanoContas plano_conta;
+	private PlanoContas plano;
 	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date emissao;
 	
@@ -50,15 +54,15 @@ public class Despesa implements Serializable{
 	@JoinColumn(name="codigo_departamento")
 	private Departamento departamentos;
 	
-	@OneToMany(mappedBy="despesa")
-	private List<DespesaParcela> despesa_parcela;
+	@OneToMany(mappedBy="despesa", cascade=CascadeType.ALL, orphanRemoval=true)
+	private List<DespesaParcela> parcelas;
 	
-	public List<DespesaParcela> getDespesa_parcela() {
-		return despesa_parcela;
+	public List<DespesaParcela> getParcelas() {
+		return parcelas;
 	}
 
-	public void setDespesa_parcela(List<DespesaParcela> despesa_parcela) {
-		this.despesa_parcela = despesa_parcela;
+	public void setParcelas(List<DespesaParcela> parcelas) {
+		this.parcelas = parcelas;
 	}
 
 	public Long getCodigo() {
@@ -85,12 +89,12 @@ public class Despesa implements Serializable{
 		this.fornecedor = fornecedor;
 	}
 
-	public PlanoContas getPlano_conta() {
-		return plano_conta;
+	public PlanoContas getPlano() {
+		return plano;
 	}
 
-	public void setPlano_conta(PlanoContas plano_conta) {
-		this.plano_conta = plano_conta;
+	public void setPlano(PlanoContas plano) {
+		this.plano = plano;
 	}
 
 	public Date getEmissao() {

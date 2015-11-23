@@ -10,7 +10,7 @@
 	<jsp:body>
 <div class="row">
 					<div class="col-lg-12">
-						<h2 class="page-header">Recebimento</h2>
+						<h2 class="page-header">Pagamento</h2>
 					</div>
 
 				</div>
@@ -43,10 +43,10 @@
 				</div>
 			</div>
 					 
-			<form action="/financeiro/lancamentos/receitas/receber/" method="post"	enctype="multipart/form-data">
+			<form action="/financeiro/lancamentos/despesas/pagar/" method="post"	enctype="multipart/form-data">
 			<div class="row">	
 			<div class="form-group col-md-3">
-						<label for="nome">Conta de Entrada</label> 
+						<label for="nome">Conta de Saída</label> 
 						<form:select path="parcela.banco.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione uma Conta" />
 	            			<form:options items="${bancos}" itemValue="codigo"
@@ -54,16 +54,16 @@
 	        			</form:select>
 					</div>
 					<div class="form-group col-md-2">
-						<label for="recebimento">Data Recebimento</label> 
-						<input type="text" class="form-control" name="recebimento" id="recebimento"
-						placeholder="Informe a data de recebimento...">
+						<label for="pagamento">Data Pagamento</label> 
+						<input type="text" class="form-control" name="pagamento" id="pagamento"
+						placeholder="Informe a data de pagamento...">
 					</div>
 				
 	    </div>
 					<input type="hidden" value="${parcela.codigo}" name="codigo" id="codigo">
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left: 20px"></span>
-					<a href="/financeiro/lancamentos/receitas/" class="btn btn-primary">Voltar</a>
+					<a href="/financeiro/lancamentos/despesas/" class="btn btn-primary">Voltar</a>
 			</form>
 
 

@@ -143,18 +143,13 @@
 										<li><a href="#">Patrimônios</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 
-								<li><a href="#">Transferências <span class="fa arrow"></span></a>
-									<ul class="nav nav-third-level">
-										<li><a href="#">Entre Contas</a></li>
-										<li><a href="#">Ajuste de Saldo</a></li>
-									</ul> <!-- /.nav-third-level --></li>
-
 								<li><a href="#">Lançamentos <span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
+										<li><a href="#">Transferências</a></li>
 										<li><a href="/financeiro/lancamentos/receitas/novo/">Lançamento de Receitas</a></li>
-										<li><a href="#">Lançamento de Despesas</a></li>
+										<li><a href="/financeiro/lancamentos/despesas/novo/">Lançamento de Despesas</a></li>
 										<li><a href="/financeiro/lancamentos/receitas/">Contas á Receber</a></li>
-										<li><a href="#">Contas á Pagar</a></li>
+										<li><a href="/financeiro/lancamentos/despesas/">Contas á Pagar</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 
 							<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>

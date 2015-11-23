@@ -31,6 +31,11 @@ public class Pessoas implements Serializable {
 		Query query = em.createQuery("select p from Pessoa p where grupo in(0,1,2,4) or grupo is null order by nome asc");
 		return (List<Pessoa>) query.getResultList();
 	}
+	
+	public List<Pessoa> todas3() {
+		Query query = em.createQuery("select f from Pessoa f where grupo in(1,3) order by nome asc");
+		return (List<Pessoa>) query.getResultList();
+	}
 	public Pessoa findByCodigo(Long codigo) {
 		return em.find(Pessoa.class, codigo);
 	}
