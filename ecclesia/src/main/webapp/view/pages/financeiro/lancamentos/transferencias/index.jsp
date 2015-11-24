@@ -55,7 +55,13 @@
                						Simples
                					</c:if>
                					</td>
+               					<c:if test="${movimento.tipo=='SIMPLES'}">
                					<td><a href="/financeiro/lancamentos/transferencias/simples/${movimento.codigo}">Alterar</a></td>
+               					</c:if>
+               					<c:if test="${movimento.tipo=='ENTRECONTAS'}">
+               					<td><a href="/financeiro/lancamentos/transferencias/entrecontas/${movimento.codigo}">Alterar</a></td>
+               					</c:if>
+               					
 								<td><a href="/financeiro/lancamentos/transferencias/${movimento.codigo}/excluir">Excluir</a></td>
                				</tr>
               				</c:forEach>

@@ -42,8 +42,8 @@ jQuery(function($){
 						placeholder="Informe Valor..." value="${movimento.valor}">
 					</div>
 					<div class="form-group col-md-2">
-						<label for="data">Data</label> 
-						<input type="text" class="form-control" name="data" OnKeyUp="mascaraData(this);" id="campoData"
+						<label for="data_mov">Data</label> 
+						<input type="text" class="form-control" name="data_mov" OnKeyUp="mascaraData(this);" id="campoData"
 						placeholder="Data Lanc..." value="${movimento.data_mov}">
 					</div>
 					<div class="form-group col-md-3">

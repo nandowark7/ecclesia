@@ -4,7 +4,15 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
@@ -34,8 +42,8 @@
 						placeholder="Informe Valor..." value="${movimento.valor}">
 					</div>
 					<div class="form-group col-md-2">
-						<label for="data">Data</label> 
-						<input type="text" class="form-control" name="data" id="nome"
+						<label for="data_mov">Data</label> 
+						<input type="text" class="form-control" name="data_mov" OnKeyUp="mascaraData(this);" id="campoData"
 						placeholder="Data Lanc..." value="${movimento.data_mov}">
 					</div>
 					<div class="form-group col-md-3">
