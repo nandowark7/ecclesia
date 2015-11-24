@@ -44,7 +44,7 @@
                					<td>${movimento.documento}</td>
                					<td>${movimento.descricao}</td>
                					<td>${movimento.valor}</td>
-               					<td>${movimento.data}</td>
+               					<td>${movimento.data_mov}</td>
                					<td>${movimento.contaOrigem.nome}</td>
                					<td>${movimento.contaDestino.nome}</td>
                					<td>

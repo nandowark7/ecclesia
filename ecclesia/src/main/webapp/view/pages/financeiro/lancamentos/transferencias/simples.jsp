@@ -36,7 +36,7 @@
 					<div class="form-group col-md-2">
 						<label for="data">Data</label> 
 						<input type="text" class="form-control" name="data" id="nome"
-						placeholder="Data Lanc..." value="${movimento.data}">
+						placeholder="Data Lanc..." value="${movimento.data_mov}">
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">Banco/Conta</label> 
