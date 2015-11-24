@@ -205,11 +205,10 @@
 								<li><a href="#"><i class="fa fa-archive"></i> Departamentos<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 
-								<li><a href="#"><i class="fa fa-book"></i> Cadastros<span
-										class="fa arrow"></span></a>
+								<li><a href="#"><i class="fa fa-book"></i> Cadastros<span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="#">Tipos de Departamentos</a></li>
-										<li><a href="#">Montagem do Grupo</a></li>
+										<li><a href="/departamento/cadastro/tipos/">Departamentos</a></li>
+										<li><a href="/departamento/cadastro/grupos/">Montagem do Grupo</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 
 								<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>

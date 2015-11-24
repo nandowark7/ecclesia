@@ -42,7 +42,7 @@ public class ReceberController implements Serializable{
 	private void populaView(Model model) {
 		model.addAttribute("parcelas", parcelaRepository.todas());
 		model.addAttribute("clientes", clienteRepository.todas2());
-		model.addAttribute("banco", bancoRepository.todas());
+		model.addAttribute("banco", bancoRepository.todas2());
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
@@ -61,7 +61,7 @@ public class ReceberController implements Serializable{
 	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
 	public String alterar(@PathVariable Long codigo, Model model) {
 		model.addAttribute("parcela", parcelaRepository.findByCodigo(codigo));
-		model.addAttribute("bancos", bancoRepository.todas());
+		model.addAttribute("bancos", bancoRepository.todas2());
 		return "/pages/financeiro/lancamentos/receitas/receber";
 	}
 }

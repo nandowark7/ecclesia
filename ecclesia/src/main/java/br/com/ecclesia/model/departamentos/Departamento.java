@@ -28,7 +28,7 @@ public class Departamento implements Serializable {
 	@JoinColumn(name="codigo_congregacao")
 	private Congregacao congregacao;
 	
-	private TiposDpto tipos_departamento;
+	private TiposDpto tipo;
 
 	public Long getCodigo() {
 		return codigo;
@@ -54,12 +54,12 @@ public class Departamento implements Serializable {
 		this.congregacao = congregacao;
 	}
 
-	public TiposDpto getTipos_departamento() {
-		return tipos_departamento;
+	public TiposDpto getTipo() {
+		return tipo;
 	}
 
-	public void setTipos_departamento(TiposDpto tipos_departamento) {
-		this.tipos_departamento = tipos_departamento;
+	public void setTipo(TiposDpto tipo) {
+		this.tipo = tipo;
 	}
 
 	@Override

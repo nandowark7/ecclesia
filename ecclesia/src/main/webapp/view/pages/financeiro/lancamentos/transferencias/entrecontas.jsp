@@ -4,121 +4,73 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
 <div class="row">
 					<div class="col-lg-12">
-						<h2 class="page-header">Clientes</h2>
+						<h2 class="page-header">Transfêrencia Entre Contas</h2>
 					</div>
 
 				</div>
 				
-			<form action="/financeiro/cadastro/clientes/" method="post"	enctype="multipart/form-data">
+			<form action="/financeiro/lancamentos/transferencias/" method="post"	enctype="multipart/form-data">
 				
 				<div class="row">
-					<div class="form-group col-md-3">
-						<label for="nome">Nome</label> 
-						<input type="text" class="form-control" name="nome" id="nome"
-						placeholder="Digite um nome..." value="${cliente.nome}">
-						<form:errors path="cliente.nome" />
+					<div class="form-group col-md-2">
+						<label for="documento">Doc</label> 
+						<input type="text" class="form-control" name="documento" id="nome"
+						placeholder="Doc. nº..." value="${movimento.documento}">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="descricao">Descrição</label> 
+						<input type="text" class="form-control" name="descricao" id="nome"
+						placeholder="Informe a Descrição..." value="${movimento.descricao}">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="valor">Valor</label> 
+						<input type="text" class="form-control" name="valor" id="nome"
+						placeholder="Informe Valor..." value="${movimento.valor}">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="data">Data</label> 
+						<input type="text" class="form-control" name="data" OnKeyUp="mascaraData(this);" id="campoData"
+						placeholder="Data Lanc..." value="${movimento.data}">
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">CNPJ</label> 
-						<input type="text" class="form-control" name="cnpj" id="cnpj"
-						placeholder="Digite o CNPJ..." value="${cliente.cnpj}">
-						<form:errors path="cliente.cnpj" />
-					</div>	
-					<div class="form-group col-md-3">
-						<label for="inscricaoEstadual">Inscrição Estadual</label> 
-						<input type="text" class="form-control" name="inscricaoEstadual" id="ie"
-						placeholder="Informe a Inscrição..." value="${cliente.inscricaoEstadual}">
-						<form:errors path="cliente.inscricaoEstadual" />
-					</div>	
-					<div class="form-group col-md-3">
-						<label for="responsavel">Responsável/Contato</label> 
-						<input type="text" class="form-control" name="responsavel" id="resp" 
-						placeholder="Informe o responsável..."
-						value="${cliente.responsavel}">
-						<form:errors path="cliente.responsavel" />
-					</div>
-					
-					<div class="form-group col-md-3">
-						<label for="nome">Situação</label> 
-						<form:select path="cliente.situacao" class="form-control">
-							<form:option value="" label="Selecione a Situação" />
-	           				<form:option value="ATIVA" label="Ativa" />
-	           				<form:option value="INATIVA" label="Inativa" />
-	        			</form:select>
-						<form:errors path="cliente.situacao" />
-					</div>
-					<div class="form-group col-md-3">
-						<label for="nome">E-Mail</label> 
-						<input type="text" class="form-control" name="email" id="email"
-						placeholder="Digite o e-mail..." value="${cliente.email}">
-						<form:errors path="cliente.email" />
-					</div>
-						
-					<div class="form-group col-md-3">
-						<label for="nome">Fone</label> 
-						<input type="text" class="form-control" name="fone" id="fone"
-						placeholder="Digite o telefone..." value="${cliente.fone}">
-						<form:errors path="cliente.fone" />
-					</div>
-						<div class="form-group col-md-3">
-						<label for="nome">Fax</label> 
-						<input type="text" class="form-control" name="celular"
-						id="fax" placeholder="Digite o telefone..."
-						value="${cliente.celular}">
-						<form:errors path="cliente.celular" />
-					</div>
-						
-					<div class="form-group col-md-3">
-						<label for="nome">Endereço</label> 
-						<input type="text" class="form-control" name="endereco"
-						id="endereco" placeholder="Digite o endereço..."
-						value="${cliente.endereco}">
-						<form:errors path="cliente.endereco" />
-					</div>
-						<div class="form-group col-md-3">
-						<label for="nome">Número</label> 
-						<input type="text" class="form-control" name="numero" id="numero"
-						placeholder="Digite o número..." value="${cliente.numero}">
-						<form:errors path="cliente.numero" />
-					</div>
-					<div class="form-group col-md-3">
-						<label for="nome">Bairro</label> 
-						<input type="text" class="form-control" name="bairro" id="bairro"
-						placeholder="Digite o bairro..." value="${cliente.bairro}">
-						<form:errors path="cliente.bairro" />
-					</div>
-					<div class="form-group col-md-3">
-						<label for="nome">CEP</label> 
-						<input type="text" class="form-control" name="cep" id="cep"
-						placeholder="Digite o CEP..." value="${cliente.cep}">
-						<form:errors path="cliente.cep" />
-					</div>
-					<div class="form-group col-md-3">
-						<label for="nome">Cidade</label> 
-						<form:select path="cliente.cidade.codigo" class="form-control">
-	           				<form:option value="0" label="Selecione uma Cidade" />
-	            			<form:options items="${cidades}" itemValue="codigo"
+						<label for="nome">Conta Origem</label> 
+						<form:select path="movimento.contaOrigem.codigo" class="form-control">
+	           				<form:option value="0" label="Selecione a conta Origem" />
+	            			<form:options items="${contas}" itemValue="codigo"
 							itemLabel="nome" />
 	        			</form:select>
-	        			<form:errors path="cliente.cidade" />
+					</div>
+					<div class="form-group col-md-3">
+						<label for="nome">Conta Destino</label> 
+						<form:select path="movimento.contaDestino.codigo" class="form-control">
+	           				<form:option value="0" label="Selecione a Conta Destino" />
+	            			<form:options items="${contas}" itemValue="codigo"
+							itemLabel="nome" />
+	        			</form:select>
 					</div>
 					
-					<input type="hidden" value="${cliente.codigo}" name="codigo" id="codigo">
-					<input type="hidden" path="cliente.grupo" value="CLIENTE"" name="grupo" id="grupo"></div>
+					</div>
+					<input type="hidden" value="${movimento.codigo}" name="codigo" id="codigo">
+					<input type="hidden" path="movimento.tipo" value="ENTRECONTAS" name="tipo" id="tipo">
+					
 					<button type="submit" class="btn btn-primary">Confirmar</button>
 					<span style="padding-left: 20px"></span>
-					<a href="/financeiro/cadastro/clientes/" class="btn btn-primary">Voltar</a>
+					<a href="/financeiro/lancamentos/transferencias/" class="btn btn-primary">Voltar</a>
 			</form>
-
-
-
-
 
 
 </jsp:body>

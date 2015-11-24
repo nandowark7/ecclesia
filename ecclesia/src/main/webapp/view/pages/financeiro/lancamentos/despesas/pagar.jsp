@@ -4,7 +4,15 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
@@ -23,7 +31,7 @@
 				</div>
 				<div class="form-group col-md-2">
 					<label for="vencimento">Vencimento</label> 
-					<input type="text" class="form-control" name="vencimento" id="vencimento"
+					<input type="text" class="form-control" name="vencimento"  id="campo"
 					placeholder="Informe o vencimento..." readonly value="${parcela.vencimento}">
 				</div>
 				<div class="form-group col-md-2">
@@ -34,12 +42,12 @@
 				<div class="form-group col-md-2">
 					<label for="acrescimo">Acréscimo</label> 
 					<input type="text" class="form-control" id="acrescimo"
-					placeholder="Informe o acrescimo..." readonly value="${parcela.acrescimo}">
+					placeholder="Informe o acrescimo..."  value="${parcela.acrescimo}">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="desconto">Desconto</label> 
 					<input type="text" class="form-control" name="desconto" 
-							id="desconto" placeholder="Informe o desconto..." readonly value="${parcela.desconto}">
+							id="desconto" placeholder="Informe o desconto..."  value="${parcela.desconto}">
 				</div>
 			</div>
 					 
@@ -55,8 +63,8 @@
 					</div>
 					<div class="form-group col-md-2">
 						<label for="pagamento">Data Pagamento</label> 
-						<input type="text" class="form-control" name="pagamento" id="pagamento"
-						placeholder="Informe a data de pagamento...">
+						<input type="text" class="form-control" name="pagamento" OnKeyUp="mascaraData(this);" id="campoData"
+						placeholder="Data de pagamento...">
 					</div>
 				
 	    </div>

@@ -50,7 +50,7 @@ public class MovimentacaoController implements Serializable{
 	
 	@RequestMapping(value = "entrecontas/", method = RequestMethod.GET)
 	public String inserirEntreContas(Model model) {
-		model.addAttribute("contas", contasRepository.todas());
+		model.addAttribute("contas", contasRepository.todas2());
 		model.addAttribute("movimento", new MovimentaSaldo());
 		return "pages/financeiro/lancamentos/transferencias/entrecontas";
 	}
@@ -70,11 +70,18 @@ public class MovimentacaoController implements Serializable{
 		return "redirect:/financeiro/lancamentos/transferencias/";
 	}
 
-	@RequestMapping(value = "/{codigo}", method = RequestMethod.GET)
-	public String alterar(@PathVariable Long codigo, Model model) {
-		model.addAttribute("contas", contasRepository.todas());
+	@RequestMapping(value = "simples/{codigo}", method = RequestMethod.GET)
+	public String alterarSimples(@PathVariable Long codigo, Model model) {
+		model.addAttribute("contas", contasRepository.todas2());
 		model.addAttribute("movimento", repository.findByCodigo(codigo));
 		return "pages/financeiro/lancamentos/transferencias/simples";
+	}
+	
+	@RequestMapping(value = "entrecontas/{codigo}", method = RequestMethod.GET)
+	public String alterarEntreContas(@PathVariable Long codigo, Model model) {
+		model.addAttribute("contas", contasRepository.todas2());
+		model.addAttribute("movimento", repository.findByCodigo(codigo));
+		return "pages/financeiro/lancamentos/transferencias/entrecontas";
 	}
 
 	@RequestMapping(value = "/{codigo}/excluir", method = RequestMethod.GET)
