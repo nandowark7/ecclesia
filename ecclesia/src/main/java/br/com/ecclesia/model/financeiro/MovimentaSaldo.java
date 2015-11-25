@@ -30,7 +30,7 @@ public class MovimentaSaldo implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date data;
+	private Date data_mov;
 
 	@OneToOne
 	@JoinColumn(name = "codigo_conta_Origem", referencedColumnName="codigo")
@@ -73,12 +73,14 @@ public class MovimentaSaldo implements Serializable {
 		this.valor = valor;
 	}
 
-	public Date getData() {
-		return data;
+
+
+	public Date getData_mov() {
+		return data_mov;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setData_mov(Date data_mov) {
+		this.data_mov = data_mov;
 	}
 
 	public BancoConta getContaOrigem() {
