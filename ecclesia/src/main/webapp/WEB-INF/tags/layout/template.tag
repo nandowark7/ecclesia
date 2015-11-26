@@ -80,7 +80,7 @@
 						<li><a href="#"><i class="fa fa-gear fa-fw"></i>Configurações</a>
 						</li>
 						<li class="divider"></li>
-						<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Sair</a></li>
+						<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Sair</a></li>
 					</ul> <!-- /.dropdown-user --></li>
 				<!-- /.dropdown -->
 			</ul>
@@ -154,7 +154,7 @@
 
 							<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
 									<ul class="nav nav-third-level">
-										<li><a href="#">Relatório de Receitas</a></li>
+										<li><a href="/financeiro/relatorios/contasRecebidas/">Relatório de Receitas</a></li>
 										<li><a href="#">Relatório de Despesas</a></li>
 										<li><a href="#">Relatório de Resultados</a></li>
 										<li><a href="#">Extrato de Bancos e Contas</a></li>

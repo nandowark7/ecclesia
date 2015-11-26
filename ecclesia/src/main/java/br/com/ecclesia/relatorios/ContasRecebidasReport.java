@@ -1,4 +1,4 @@
-package br.com.ecclesia.controller;
+package br.com.ecclesia.relatorios;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,35 +41,27 @@ import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
 import net.sf.jasperreports.export.SimpleHtmlReportConfiguration;
 
 @Controller
-public class LoadJasperReport {
+public class ContasRecebidasReport {
 
-	@ModelAttribute("jasperRptFormats")
-	public ArrayList getJasperRptFormats() {
-		ArrayList<String> jasperRptFormats = new ArrayList<String>();
-		jasperRptFormats.add("Html");
-		jasperRptFormats.add("PDF");
 
-		return jasperRptFormats;
-	}
-
-	@RequestMapping(value = "/loadJasper", method = RequestMethod.GET)
+	@RequestMapping(value = "/financeiro/relatorios/contasRecebidas/", method = RequestMethod.GET)
 	public String loadSurveyPg(@ModelAttribute("jasperInputForm") JasperInputForm jasperInputForm, Model model) {
 		model.addAttribute("JasperInputForm", jasperInputForm);
-		return "pages/financeiro/lancamentos/loadJasper";
+		return "pages/financeiro/relatorios/contasRecebidas";
 	}
 
-	@RequestMapping(value = "/generateReport", method = RequestMethod.POST)
+	@RequestMapping(value = "/financeiro/relatorios/contasRecebidas/generateReport", method = RequestMethod.POST)
 	public String generateReport(@Valid @ModelAttribute("jasperInputForm") JasperInputForm jasperInputForm,
 			BindingResult result, Model model, HttpServletRequest request, HttpServletResponse response)
 					throws ParseException {
 
 		if (result.hasErrors()) {
 			System.out.println("validation error occured in jasper input form");
-			return "pages/financeiro/lancamentos/loadJasper";
+			return "pages/financeiro/relatorios/contasRecebidas";
 
 		}
 
-		String reportFileName = "Extrato_simples";
+		String reportFileName = "ContasRecebidas";
 
 		Connection conn = null;
 		try {
@@ -90,34 +83,22 @@ public class LoadJasperReport {
 			}
 
 			String rptFormat = jasperInputForm.getRptFmt();
-			String noy = jasperInputForm.getNoofYears();
+			Date inicio = jasperInputForm.getInicio();
+			Date fim  = jasperInputForm.getFim();
 
 			System.out.println("rpt format " + rptFormat);
-			System.out.println("no of years " + noy);
+			System.out.println("no of years " + inicio);
 
 			// Parameters as Map to be passed to Jasper
 			HashMap<String, Object> hmParams = new HashMap<String, Object>();
 
-//			hmParams.put("noy", new Integer(noy));
-//			hmParams.put("Title", "Employees working more than " + noy + " Years");
+			hmParams.put("inicio", inicio);
+			hmParams.put("fim", fim);
 
 			JasperReport jasperReport = getCompiledFile(reportFileName, request);
 
-			if (rptFormat.equalsIgnoreCase("html")) {
 
-				JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hmParams, conn);
-				generateReportHtml(jasperPrint, request, response); // For HTML
-																	// report
-
-			}
-
-			else if (rptFormat.equalsIgnoreCase("pdf")) {
-
-				generateReportPDF(response, hmParams, jasperReport, conn); // For
-																			// PDF
-																			// report
-
-			}
+			generateReportPDF(response, hmParams, jasperReport, conn); 
 
 		} catch (Exception sqlExp) {
 			sqlExp.printStackTrace();
