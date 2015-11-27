@@ -35,7 +35,7 @@ public class BancoContaController implements Serializable{
 	}
 	
 	private void populaView(Model model) {
-		model.addAttribute("banco", repository.todas());
+		model.addAttribute("banco", repository.todas2());
 		
 	}
 

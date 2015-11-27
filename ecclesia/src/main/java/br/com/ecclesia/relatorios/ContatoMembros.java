@@ -7,8 +7,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,10 +23,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.com.ecclesia.model.relatorios.ReceitaDespesa;
+import br.com.ecclesia.model.relatorios.CadMembros;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
@@ -41,27 +36,27 @@ import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
 import net.sf.jasperreports.export.SimpleHtmlReportConfiguration;
 
 @Controller
-public class ContasRecebidasReport {
+public class ContatoMembros {
 
 
-	@RequestMapping(value = "/financeiro/relatorios/contasRecebidas/", method = RequestMethod.GET)
-	public String loadSurveyPg(@ModelAttribute("jasperInputForm") ReceitaDespesa jasperInputForm, Model model) {
+	@RequestMapping(value = "/secretaria/relatorios/membrosContatos/", method = RequestMethod.GET)
+	public String loadSurveyPg(@ModelAttribute("jasperInputForm") CadMembros jasperInputForm, Model model) {
 		model.addAttribute("JasperInputForm", jasperInputForm);
-		return "pages/financeiro/relatorios/contasRecebidas";
+		return "pages/secretaria/relatorios/membrosContatos";
 	}
-
-	@RequestMapping(value = "/financeiro/relatorios/contasRecebidas/generateReport", method = RequestMethod.POST)
-	public String generateReport(@Valid @ModelAttribute("jasperInputForm") ReceitaDespesa jasperInputForm,
+	                         
+	@RequestMapping(value = "/secretaria/relatorios/membrosContatos/membrosContatos", method = RequestMethod.POST)
+	public String generateReport(@Valid @ModelAttribute("jasperInputForm") CadMembros jasperInputForm,
 			BindingResult result, Model model, HttpServletRequest request, HttpServletResponse response)
 					throws ParseException {
 
 		if (result.hasErrors()) {
 			System.out.println("validation error occured in jasper input form");
-			return "pages/financeiro/relatorios/contasRecebidas";
+			return "pages/secretaria/relatorios/membrosContatos";
 
 		}
 
-		String reportFileName = "ContasRecebidas";
+		String reportFileName = "Membros";
 
 		Connection conn = null;
 		try {
@@ -82,23 +77,12 @@ public class ContasRecebidasReport {
 				System.out.println(" connection Failed ");
 			}
 
-			String rptFormat = jasperInputForm.getRptFmt();
-			Date inicio = jasperInputForm.getInicio();
-			Date fim  = jasperInputForm.getFim();
 
-			System.out.println("rpt format " + rptFormat);
-			System.out.println("no of years " + inicio);
-
-			// Parameters as Map to be passed to Jasper
-			HashMap<String, Object> hmParams = new HashMap<String, Object>();
-
-			hmParams.put("inicio", inicio);
-			hmParams.put("fim", fim);
 
 			JasperReport jasperReport = getCompiledFile(reportFileName, request);
 
-
-			generateReportPDF(response, hmParams, jasperReport, conn); 
+			
+			generateReportPDF(response, null, jasperReport, conn);
 
 		} catch (Exception sqlExp) {
 			sqlExp.printStackTrace();

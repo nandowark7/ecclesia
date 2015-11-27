@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Ecclesia - Sistema para Igrejas</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Acesso ao Sistema Ecclesia</h3>
                     </div>
                     <div class="panel-body">
                         <form role="form" id="login-form" action="/login" method="post">
@@ -58,7 +58,7 @@
                                 </div>
                                 ${error}
                                 <!-- Change this to a button or input when using this as a form -->
-                                <input type="submit" name="login-submit" id="login-submit" class="btn btn-lg btn-success btn-block" value="Log In">
+                                <input type="submit" name="login-submit" id="login-submit" class="btn-lg btn-success btn-block" value="Entrar">
                             </fieldset>
                         </form>
                     </div>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2015-11-25T22:58:22 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Membros" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d51f1a5f-24c9-424b-9096-e6c2ad3f1195">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ecclesia"/>
+	<queryString>
+		<![CDATA[select * from Pessoa  where grupo in (0,1,2) or grupo is null order by nome asc]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo_congregacao" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="e73e3200-6ed8-4921-ad0c-06e4eda80191"/>
+				<staticText>
+					<reportElement x="20" y="20" width="220" height="43" forecolor="#FFFFFF" uuid="baf07846-346f-47b1-90ef-069f1358394f"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Listagem de Membros]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="410" y="50" width="180" height="20" forecolor="#FFFFFF" uuid="84702ada-8d1f-41e0-aa06-b775e7d1eca5"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Igreja Assembléia de Deus]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="400" y="72" width="180" height="20" forecolor="#FFFFFF" uuid="d1a38b78-8402-4547-acb3-d9c82256555f"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[São Lourenço do Oeste]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="50" width="220" height="43" forecolor="#FFFFFF" uuid="f225da25-922a-46ef-b33f-d7c67c8bfc03"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dados para Contato]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-10" y="20" width="565" height="1" forecolor="#666666" uuid="3212793f-a40e-4bd5-9425-be9caac9ea50"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="-10" y="0" width="30" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d6987c54-5525-4b3b-8362-3917b13fcdc4"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cód.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="30" y="0" width="192" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="924f6106-7823-48cf-abda-4045296d8c8b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0b94b821-3192-41b6-9c1f-367e27456c9b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="0" width="215" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c12caae9-abf9-4062-97ce-d08d156a0fb4"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-10" y="20" width="565" height="1" uuid="073626d7-cf27-4c0c-934f-ce41a06fab24"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="-10" y="0" width="30" height="20" uuid="8ee4f128-b3b8-4ac9-9c59-5ee59c911fba"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="30" y="0" width="192" height="20" uuid="de9e5515-f38f-4ae2-9a2e-07bb07e6dc4e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="230" y="0" width="111" height="20" uuid="48d0e5ec-cd01-433b-9278-3ab9385d8c80"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="340" y="0" width="222" height="20" uuid="4334e907-c23b-435c-a144-c42b86cb8d96"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="-10" y="4" width="535" height="13" backcolor="#E6E6E6" uuid="dd33a306-d3c1-4a0b-875c-706bd4363754"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="525" y="4" width="30" height="13" backcolor="#E6E6E6" uuid="dfdde6bd-68ba-41a7-b1f6-942c2a8bfa8e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="160" height="13" uuid="fbb918d1-0f60-4ecd-aa43-026ea69ab644"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

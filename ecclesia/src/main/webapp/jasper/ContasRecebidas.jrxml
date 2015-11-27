@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2015-11-25T21:21:02 -->
+<!-- 2015-11-25T22:58:22 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContasRecebidas" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f98b69e5-abd6-40d7-84f9-51c1e907e83b">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ecclesia"/>
@@ -73,7 +73,7 @@
 					<textElement textAlignment="Center">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Sede - São Lourenço do Oeste]]></text>
+					<text><![CDATA[São Lourenço do Oeste]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -170,19 +170,12 @@
 	</columnFooter>
 	<pageFooter>
 		<band height="131">
-			<staticText>
-				<reportElement mode="Opaque" x="-10" y="90" width="520" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ad8c4be4-4dfe-4147-b532-ba6e8b9e401e"/>
+			<textField>
+				<reportElement x="330" y="90" width="230" height="30" forecolor="#2447E3" backcolor="#DBDBDB" uuid="f677c07b-e511-49dd-85db-cfa7e210f6df"/>
 				<textElement textAlignment="Right">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Total de Recebimentos:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="510" y="90" width="50" height="30" uuid="f677c07b-e511-49dd-85db-cfa7e210f6df"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{TotalGeral}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Recebimentos:   " + $V{TotalGeral}]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="0" y="92" width="160" height="17" uuid="7cc8c256-9560-48ce-8e3d-e012e81e3280"/>

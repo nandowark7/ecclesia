@@ -118,7 +118,7 @@
 								<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
 									<ul class="nav nav-third-level">
 										<li><a href="#">Congregações</a></li>
-										<li><a href="#">Membros</a></li>
+										<li><a href="/secretaria/relatorios/membrosContatos">Membros</a></li>
 										<li><a href="#">Famílias</a></li>
 										<li><a href="#">Visitantes</a></li>
 									</ul> <!-- /.nav-third-level --></li>
@@ -155,7 +155,7 @@
 							<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
 									<ul class="nav nav-third-level">
 										<li><a href="/financeiro/relatorios/contasRecebidas/">Relatório de Receitas</a></li>
-										<li><a href="#">Relatório de Despesas</a></li>
+										<li><a href="/financeiro/relatorios/contasPagas/">Relatório de Despesas</a></li>
 										<li><a href="#">Relatório de Resultados</a></li>
 										<li><a href="#">Extrato de Bancos e Contas</a></li>
 										<li><a href="#">Relatório de Patrimônios</a></li>

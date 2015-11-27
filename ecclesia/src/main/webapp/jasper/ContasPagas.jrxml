@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2015-11-24T21:21:58 -->
+<!-- 2015-11-25T22:58:22 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContasPagas" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2842c0d2-b2b8-40d8-8638-9db8bd4be756">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ecclesia"/>
+	<parameter name="inicio" class="java.lang.Date">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="fim" class="java.lang.Date"/>
 	<queryString>
 		<![CDATA[select * from despesa_parcela where pagamento is not null]]>
 	</queryString>
@@ -52,7 +56,7 @@
 					<textElement textAlignment="Center">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Sede - São Lourenço do Oeste]]></text>
+					<text><![CDATA[São Lourenço do Oeste]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -149,19 +153,12 @@
 	</columnFooter>
 	<pageFooter>
 		<band height="137">
-			<staticText>
-				<reportElement mode="Opaque" x="-10" y="100" width="576" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2ddf221e-db84-4afa-b2f8-079a7f928f71"/>
+			<textField>
+				<reportElement x="300" y="100" width="267" height="25" forecolor="#0E4EE6" uuid="8856f478-139a-4cfe-a239-260baca80e62"/>
 				<textElement textAlignment="Right">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Total de Pagamentos:              ]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="511" y="100" width="56" height="25" uuid="8856f478-139a-4cfe-a239-260baca80e62"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{TotalGeralD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Total de Pagamentos:  " + $V{TotalGeralD}]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMMM dd, yyyy">
 				<reportElement x="0" y="102" width="130" height="17" uuid="4d315c66-059b-4303-8fb4-85fd4075ee54"/>

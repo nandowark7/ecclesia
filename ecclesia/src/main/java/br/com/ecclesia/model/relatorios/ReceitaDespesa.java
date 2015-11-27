@@ -1,4 +1,4 @@
-package br.com.ecclesia.model;
+package br.com.ecclesia.model.relatorios;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class JasperInputForm {
+public class ReceitaDespesa {
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)

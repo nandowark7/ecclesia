@@ -41,27 +41,27 @@ import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
 import net.sf.jasperreports.export.SimpleHtmlReportConfiguration;
 
 @Controller
-public class ContasRecebidasReport {
+public class ContasPagasReport {
 
 
-	@RequestMapping(value = "/financeiro/relatorios/contasRecebidas/", method = RequestMethod.GET)
+	@RequestMapping(value = "/financeiro/relatorios/contasPagas/", method = RequestMethod.GET)
 	public String loadSurveyPg(@ModelAttribute("jasperInputForm") ReceitaDespesa jasperInputForm, Model model) {
 		model.addAttribute("JasperInputForm", jasperInputForm);
-		return "pages/financeiro/relatorios/contasRecebidas";
+		return "pages/financeiro/relatorios/contasPagas";
 	}
 
-	@RequestMapping(value = "/financeiro/relatorios/contasRecebidas/generateReport", method = RequestMethod.POST)
-	public String generateReport(@Valid @ModelAttribute("jasperInputForm") ReceitaDespesa jasperInputForm,
+	@RequestMapping(value = "/financeiro/relatorios/contasPagas/generateReportD", method = RequestMethod.POST)
+	public String generateReportD(@Valid @ModelAttribute("jasperInputForm") ReceitaDespesa jasperInputForm,
 			BindingResult result, Model model, HttpServletRequest request, HttpServletResponse response)
 					throws ParseException {
 
 		if (result.hasErrors()) {
 			System.out.println("validation error occured in jasper input form");
-			return "pages/financeiro/relatorios/contasRecebidas";
+			return "pages/financeiro/relatorios/contasPagas";
 
 		}
 
-		String reportFileName = "ContasRecebidas";
+		String reportFileName = "ContasPagas";
 
 		Connection conn = null;
 		try {
@@ -98,7 +98,7 @@ public class ContasRecebidasReport {
 			JasperReport jasperReport = getCompiledFile(reportFileName, request);
 
 
-			generateReportPDF(response, hmParams, jasperReport, conn); 
+			generateReportDPDF(response, hmParams, jasperReport, conn); 
 
 		} catch (Exception sqlExp) {
 			sqlExp.printStackTrace();
@@ -140,7 +140,7 @@ public class ContasRecebidasReport {
 		return jasperReport;
 	}
 
-	private void generateReportHtml(JasperPrint jasperPrint, HttpServletRequest req, HttpServletResponse resp)
+	private void generateReportDHtml(JasperPrint jasperPrint, HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, JRException {
 		HtmlExporter exporter = new HtmlExporter();
 		List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();
@@ -153,7 +153,7 @@ public class ContasRecebidasReport {
 
 	}
 
-	private void generateReportPDF(HttpServletResponse resp, Map parameters, JasperReport jasperReport, Connection conn)
+	private void generateReportDPDF(HttpServletResponse resp, Map parameters, JasperReport jasperReport, Connection conn)
 			throws JRException, NamingException, SQLException, IOException {
 		byte[] bytes = null;
 		bytes = JasperRunManager.runReportToPdf(jasperReport, parameters, conn);
