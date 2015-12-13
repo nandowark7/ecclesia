@@ -68,7 +68,7 @@ jQuery(function($){
 						<form:errors path="cliente.situacao" />
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">E-Mail</label> 
+						<label for="nome">E-mail</label> 
 						<input type="text" class="form-control" name="email" id="email"
 						placeholder="Digite o e-mail..." value="${cliente.email}">
 						<form:errors path="cliente.email" />
