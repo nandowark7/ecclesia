@@ -4,13 +4,27 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	$('#CPF').mask("999.999.999-99");
+	$('#RG').mask("9.999.999-9");
+	$('#fone').mask("(99) 9999 9999");
+	$('#celular').mask("(99) 9999 9999");
+	$('#cep').mask("99.999-999");
+	
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
 <div class="row">
 					<div class="col-lg-12">
 						<h2 class="page-header">Congregações</h2>
+						<h5 class="">(*) Campos obrigatórios</h5>
 					</div>
 
 				</div>
@@ -20,7 +34,7 @@
 				
 				<div class="row">
 					<div class="form-group col-md-4">
-						<label for="nome">Nome</label> 
+						<label for="nome">Nome*</label> 
 						<input type="text" class="form-control" name="nome" id="nome"
 						placeholder="Digite um nome..." value="${congregacao.nome}">
 						<form:errors path="congregacao.nome" />
@@ -28,7 +42,7 @@
 					</div>
 				
 					<div class="form-group col-md-3">
-						<label for="nome">Regional</label> 
+						<label for="nome">Regional*</label> 
 						<form:select path="congregacao.regional.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione a Regional" />
 	            			<form:options items="${regionais}" itemValue="codigo" itemLabel="nome" />
@@ -61,8 +75,8 @@
 						<form:errors path="congregacao.bairro" />
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">CEP</label> 
-						<input type="text" class="form-control" name="cep" id="cep"
+						<label for="cep">CEP</label> 
+						<input type="text" class="form-control" name="cep" OnKeyUp="mascaraData(this);" id="cep"
 						placeholder="Digite o CEP..." value="${congregacao.cep}">
 						<form:errors path="congregacao.cep" />
 					</div>

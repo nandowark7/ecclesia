@@ -4,7 +4,21 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	$('#CPF').mask("999.999.999-99");
+	$('#cnpj').mask("99.999.999/9999-99");
+	$('#RG').mask("9.999.999-9");
+	$('#fone').mask("(99) 9999 9999");
+	$('#celular').mask("(99) 9999 9999");
+	$('#cep').mask("99.999-999");
+
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
@@ -26,19 +40,19 @@
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">CNPJ</label> 
-						<input type="text" class="form-control" name="cnpj" id="cnpj"
+						<input type="text" class="form-control" name="cnpj" OnKeyUp="mascaraData(this);" id="cnpj"
 						placeholder="Digite o CNPJ..." value="${fornecedor.cnpj}">
 						<form:errors path="fornecedor.cnpj" />
 					</div>	
 					<div class="form-group col-md-3">
-						<label for="nome">Inscrição Estadual</label> 
-						<input type="text" class="form-control" name="ie" id="ie"
+						<label for="inscricaoEstadual">Inscrição Estadual</label> 
+						<input type="text" class="form-control" name="inscricaoEstadual" id="inscricaoEstadual"
 						placeholder="Informe a Inscrição..." value="${fornecedor.inscricaoEstadual}">
 						<form:errors path="fornecedor.inscricaoEstadual" />
 					</div>	
 					<div class="form-group col-md-3">
-						<label for="nome">Responsável/Contato</label> 
-						<input type="text" class="form-control" name="resp" id="resp" 
+						<label for="responsavel">Responsável/Contato</label> 
+						<input type="text" class="form-control" name="responsavel" id="resp" 
 						placeholder="Informe o responsável..." value="${fornecedor.responsavel}">
 						<form:errors path="fornecedor.responsavel" />
 					</div>
@@ -60,41 +74,40 @@
 					</div>
 						
 					<div class="form-group col-md-3">
-						<label for="nome">Fone</label> 
-						<input type="text" class="form-control" name="fone" id="fone"
+						<label for="fone">Fone</label> 
+						<input type="text" class="form-control" name="fone" OnKeyUp="mascaraData(this);" id="fone"
 						placeholder="Digite o telefone..." value="${fornecedor.fone}">
 						<form:errors path="fornecedor.fone" />
 					</div>
 						<div class="form-group col-md-3">
-						<label for="nome">Fax</label> 
-						<input type="text" class="form-control" name="fax"
-						id="fax" placeholder="Digite o telefone..."
+						<label for="celular">Fax</label> 
+						<input type="text" class="form-control" name="celular" OnKeyUp="mascaraData(this);" id="celular" placeholder="Digite o telefone..."
 						value="${fornecedor.celular}">
 						<form:errors path="fornecedor.celular" />
 					</div>
 						
 					<div class="form-group col-md-3">
-						<label for="nome">Endereço</label> 
+						<label for="endereco">Endereço</label> 
 						<input type="text" class="form-control" name="endereco"
 						id="endereco" placeholder="Digite o endereço..."
 						value="${fornecedor.endereco}">
 						<form:errors path="fornecedor.endereco" />
 					</div>
 						<div class="form-group col-md-3">
-						<label for="nome">Número</label> 
+						<label for="numero">Número</label> 
 						<input type="text" class="form-control" name="numero" id="numero"
 						placeholder="Digite o número..." value="${fornecedor.numero}">
 						<form:errors path="fornecedor.numero" />
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">Bairro</label> 
+						<label for="bairro">Bairro</label> 
 						<input type="text" class="form-control" name="bairro" id="bairro"
 						placeholder="Digite o bairro..." value="${fornecedor.bairro}">
 						<form:errors path="fornecedor.bairro" />
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">CEP</label> 
-						<input type="text" class="form-control" name="cep" id="cep"
+						<label for="cep">CEP</label> 
+						<input type="text" class="form-control" name="cep" OnKeyUp="mascaraData(this);" id="cep"
 						placeholder="Digite o CEP..." value="${fornecedor.cep}">
 						<form:errors path="fornecedor.cep" />
 					</div>

@@ -19,6 +19,7 @@ jQuery(function($){
 <div class="row">
 					<div class="col-lg-12">
 						<h2 class="page-header">Recebimento</h2>
+						<h5 class="">(*) Campos obrigatórios</h5>
 					</div>
 
 				</div>
@@ -35,11 +36,6 @@ jQuery(function($){
 					placeholder="Informe o vencimento..." readonly value="${parcela.vencimento}">
 				</div>
 				<div class="form-group col-md-2">
-					<label for="valor">Valor</label> 
-					<input type="text" class="form-control" id="valor"
-					placeholder="Informe o valor..."  readonly value="${parcela.valor}">
-				</div>
-				<div class="form-group col-md-2">
 					<label for="acrescimo">Acréscimo</label> 
 					<input type="text" class="form-control" id="acrescimo"
 					placeholder="Informe o acrescimo..."  value="${parcela.acrescimo}">
@@ -49,12 +45,18 @@ jQuery(function($){
 					<input type="text" class="form-control" name="desconto" 
 							id="desconto" placeholder="Informe o desconto..."  value="${parcela.desconto}">
 				</div>
+				<div class="form-group col-md-2">
+					<label for="valor">Valor Total</label> 
+					<input type="text" class="form-control" id="valor"
+					placeholder="Informe o valor..."  value="${parcela.total}">
+				</div>
+				
 			</div>
 					 
 			<form action="/financeiro/lancamentos/receitas/receber/" method="post"	enctype="multipart/form-data">
 			<div class="row">	
 			<div class="form-group col-md-3">
-						<label for="nome">Conta de Entrada</label> 
+						<label for="nome">Conta de Entrada*</label> 
 						<form:select path="parcela.banco.codigo" class="form-control">
 	           				<form:option value="0" label="Selecione uma Conta" />
 	            			<form:options items="${bancos}" itemValue="codigo"
@@ -62,7 +64,7 @@ jQuery(function($){
 	        			</form:select>
 					</div>
 					<div class="form-group col-md-2">
-						<label for="recebimento">Data Recebimento</label> 
+						<label for="recebimento">Data Recebimento*</label> 
 						<input type="text" class="form-control" name="recebimento" OnKeyUp="mascaraData(this);" id="campoData"
 						placeholder="Data de recebimento...">
 					</div>

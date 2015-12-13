@@ -55,7 +55,7 @@ public class Pessoa implements Serializable {
 	private String endereco;
 	private String numero;
 	private String bairro;
-	private Integer cep;
+	private String cep;
 
 	@ManyToOne
 	@JoinColumn(name = "codigo_cidade")
@@ -223,11 +223,12 @@ public class Pessoa implements Serializable {
 		this.bairro = bairro;
 	}
 
-	public Integer getCep() {
+
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Integer cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 

@@ -37,7 +37,7 @@ jQuery(function($){
 				<div class="form-group col-md-2">
 					<label for="valor">Valor</label> 
 					<input type="text" class="form-control" id="valor"
-					placeholder="Informe o valor..."  readonly value="${parcela.valor}">
+					placeholder="Informe o valor..." value="${parcela.valor}">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="acrescimo">Acréscimo</label> 

@@ -9,6 +9,11 @@
 
 jQuery(function($){
 	$('#campoData').mask("99/99/9999");
+	$('#CPF').mask("999.999.999-99");
+	$('#RG').mask("9.999.999-9");
+	$('#fone').mask("(99) 9999 9999");
+	$('#celular').mask("(99) 9999 9999");
+	$('#cep').mask("99.999-999");
 	
 });
 
@@ -34,13 +39,13 @@ jQuery(function($){
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">CPF</label> 
-						<input type="text" class="form-control" name="cpf" id="cpf"
+						<input type="text" class="form-control" name="cpf" OnKeyUp="mascaraData(this);" id="CPF"
 						placeholder="Digite o CPF..." value="${pessoa.cpf}">
 						<form:errors path="pessoa.cpf" />
 					</div>	
 					<div class="form-group col-md-3">
 						<label for="nome">RG</label> 
-						<input type="text" class="form-control" name="rg" id="rg"
+						<input type="text" class="form-control" name="rg" OnKeyUp="mascaraData(this);" id="RG"
 						placeholder="Digite o RG..." value="${pessoa.rg}">
 						<form:errors path="pessoa.rg" />
 					</div>	
@@ -114,14 +119,13 @@ jQuery(function($){
 						
 					<div class="form-group col-md-3">
 						<label for="nome">Fone</label> 
-						<input type="text" class="form-control" name="fone" id="fone"
+						<input type="text" class="form-control" name="fone" OnKeyUp="mascaraData(this);" id="fone"
 						placeholder="Digite o telefone..." value="${pessoa.fone}">
 						<form:errors path="pessoa.fone" />
 					</div>
 						<div class="form-group col-md-3">
 						<label for="nome">Celular</label> 
-						<input type="text" class="form-control" name="celular"
-						id="celular" placeholder="Digite o telefone..."
+						<input type="text" class="form-control" name="celular" OnKeyUp="mascaraData(this);" id="celular" placeholder="Digite o telefone..."
 						value="${pessoa.celular}">
 						<form:errors path="pessoa.celular" />
 					</div>
@@ -155,8 +159,8 @@ jQuery(function($){
 						<form:errors path="pessoa.bairro" />
 					</div>
 					<div class="form-group col-md-3">
-						<label for="nome">CEP</label> 
-						<input type="text" class="form-control" name="cep" id="cep"
+						<label for="cep">CEP</label> 
+						<input type="text" class="form-control" name="cep" OnKeyUp="mascaraData(this);" id="cep"
 						placeholder="Digite o CEP..." value="${pessoa.cep}">
 						<form:errors path="pessoa.cep" />
 					</div>

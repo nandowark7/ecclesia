@@ -32,6 +32,7 @@
 	           				<form:option value="MOCIDADE" label="Mocidade" />
 	           				<form:option value="CIRCULO" label="Circulo de Oração" />
 	           				<form:option value="MISSAO" label="Missão" />
+	           				<form:option value="GERAL" label="Geral" />
 	        			</form:select>
 					</div>
 					<div class="form-group col-md-3">

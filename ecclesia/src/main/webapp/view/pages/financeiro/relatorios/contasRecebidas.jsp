@@ -26,7 +26,7 @@ jQuery(function($){
                 </div>
                         <div class="row">
                     <div class="col-lg-12">
-                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
+                        <a href="/" class="btn btn-primary">Voltar ao Início</a>
                         </br></br>
                     </div>
                 </div>

@@ -15,9 +15,9 @@
                     <div class="col-lg-12">
                         <a href="simples/" class="btn btn-primary">Lançamento Simples</a>
                         <span style="padding-left:20px"></span>
-                        <a href="entrecontas/" class="btn btn-primary">Movimentação Entre contas</a>
+                        <a href="entrecontas/" class="btn btn-primary">Movimentação Entre Contas</a>
                         <span style="padding-left:20px"></span>
-                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
+                        <a href="/" class="btn btn-primary">Voltar ao Início</a>
                         </br></br>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ public class Congregacao implements Serializable{
 	
 	private String bairro;
 	
-	private Integer cep;
+	private String cep;
 	
 	private String fone;
 	
@@ -72,10 +72,10 @@ public class Congregacao implements Serializable{
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public Integer getCep() {
+	public String getCep() {
 		return cep;
 	}
-	public void setCep(Integer cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	public String getFone() {

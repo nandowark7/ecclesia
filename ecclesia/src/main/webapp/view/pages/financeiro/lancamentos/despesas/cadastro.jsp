@@ -5,6 +5,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	
+});
+jQuery(function($){
+	$('#vencimento').mask("99/99/9999");
+	
+});
+
 	var parcelas = [];
 	var codigo = -1;
 	
@@ -121,7 +131,7 @@
 					</div>
 					<div class="form-group col-md-2">
 						<label for="emissao">Emissão</label> 
-						<input type="text" class="form-control" name="emissao" id="emissao"
+						<input type="text" class="form-control" name="emissao" OnKeyUp="mascaraData(this);" id="campoData"
 						placeholder="Informe a Data..." value="${despesa.emissao}">
 					</div>
 					<div class="form-group col-md-3">
@@ -175,7 +185,7 @@
 					</div>
 					<div class="form-group col-md-2">
 						<label for="vencimento">Vencimento</label> 
-						<input type="text" class="form-control" name="vencimento" id="vencimento"
+						<input type="text" class="form-control" name="vencimento" OnKeyUp="mascaraData(this);" id="vencimento"
 						placeholder="Informe o vencimento...">
 					</div>
 					<div class="form-group col-md-2">

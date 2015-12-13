@@ -16,7 +16,7 @@
                     <div class="col-lg-12">
                     	<a href="novo/" class="btn btn-primary">Nova Despesa</a>
                         <span style="padding-left:20px"></span>
-                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
+                        <a href="/" class="btn btn-primary">Voltar ao Início</a>
                         </br></br>
                     </div>
             

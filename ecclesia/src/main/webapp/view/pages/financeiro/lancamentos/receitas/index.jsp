@@ -8,7 +8,7 @@
 	<jsp:body>
 				<div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Contas á Receber/Recebidas</h3>
+                        <h3 class="page-header">Contas a Receber/Recebidas</h3>
                     </div>
             
                 </div>
@@ -16,7 +16,7 @@
                     <div class="col-lg-12">
                     	<a href="novo/" class="btn btn-primary">Nova Receita</a>
                         <span style="padding-left:20px"></span>
-                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
+                        <a href="/" class="btn btn-primary">Voltar ao Início</a>
                         </br></br>
                     </div>
             
@@ -31,11 +31,12 @@
               					<td>Descrição</td>
               					<td>Emissao</td>
               					<td>Vencimento</td>
-              					<td>Valor</td>
+              					<td>Data Rec.</td>
+              					<!-- <td>Valor</td>
               					<td>Acréscimo</td>
-              					<td>Desconto</td>
+              					<td>Desconto</td> -->
               					<td>Total</td>
-              					<td>Recebimento</td>
+              				
               					<td></td>
               					<td></td>
               					<td></td>
@@ -52,11 +53,12 @@
 					
          			<td>${parcela.receita.emissao}</td>
          			<td>${parcela.vencimento}</td>
-         			<td>${parcela.valor}</td>
+         			<%-- <td>${parcela.valor}</td>
          			<td>${parcela.acrescimo}</td>
-         			<td>${parcela.desconto}</td>
-         			<td>${parcela.total}</td>
+         			<td>${parcela.desconto}</td> --%>
          			<td>${parcela.recebimento}</td>
+         			<td>${parcela.total}</td>
+         			
 					<td>
 						<a href="/financeiro/lancamentos/receitas/receber/${parcela.codigo}">Receber</a>
 					</td>

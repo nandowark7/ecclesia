@@ -4,7 +4,21 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script src="../../../../static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+jQuery(function($){
+	$('#campoData').mask("99/99/9999");
+	$('#CPF').mask("999.999.999-99");
+	$('#cnpj').mask("99.999.999/9999-99");
+	$('#RG').mask("9.999.999-9");
+	$('#fone').mask("(99) 9999 9999");
+	$('#celular').mask("(99) 9999 9999");
+	$('#cep').mask("99.999-999");
+
+});
+
+</script>
 
 <layout:template>
 	<jsp:body>
@@ -26,13 +40,13 @@
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">CNPJ</label> 
-						<input type="text" class="form-control" name="cnpj" id="cnpj"
+						<input type="text" class="form-control" name="cnpj" OnKeyUp="mascaraData(this);" id="cnpj"
 						placeholder="Digite o CNPJ..." value="${cliente.cnpj}">
 						<form:errors path="cliente.cnpj" />
 					</div>	
 					<div class="form-group col-md-3">
 						<label for="inscricaoEstadual">Inscrição Estadual</label> 
-						<input type="text" class="form-control" name="inscricaoEstadual" id="ie"
+						<input type="text" class="form-control" name="inscricaoEstadual" id="inscricaoEstadual"
 						placeholder="Informe a Inscrição..." value="${cliente.inscricaoEstadual}">
 						<form:errors path="cliente.inscricaoEstadual" />
 					</div>	
@@ -62,14 +76,13 @@
 						
 					<div class="form-group col-md-3">
 						<label for="nome">Fone</label> 
-						<input type="text" class="form-control" name="fone" id="fone"
+						<input type="text" class="form-control" name="fone" OnKeyUp="mascaraData(this);" id="fone"
 						placeholder="Digite o telefone..." value="${cliente.fone}">
 						<form:errors path="cliente.fone" />
 					</div>
 						<div class="form-group col-md-3">
 						<label for="nome">Fax</label> 
-						<input type="text" class="form-control" name="celular"
-						id="fax" placeholder="Digite o telefone..."
+						<input type="text" class="form-control" name="celular" OnKeyUp="mascaraData(this);" id="celular" placeholder="Digite o telefone..."
 						value="${cliente.celular}">
 						<form:errors path="cliente.celular" />
 					</div>
@@ -95,7 +108,7 @@
 					</div>
 					<div class="form-group col-md-3">
 						<label for="nome">CEP</label> 
-						<input type="text" class="form-control" name="cep" id="cep"
+						<input type="text" class="form-control" name="cep" OnKeyUp="mascaraData(this);" id="cep"
 						placeholder="Digite o CEP..." value="${cliente.cep}">
 						<form:errors path="cliente.cep" />
 					</div>

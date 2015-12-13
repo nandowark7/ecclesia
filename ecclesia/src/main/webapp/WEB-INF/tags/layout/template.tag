@@ -64,7 +64,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Ecclesia 1.0 <span style="padding-left:500px">Assembléia de Deus - São Lourenço do Oeste SC</span></a>
+				<a class="navbar-brand" href="index.html">Ecclesia 1.0 <span style="padding-left:460px">Assembléia de Deus - São Lourenço do Oeste SC</span></a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -76,7 +76,7 @@
 						<i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="#"><i class="fa fa-user fa-fw"></i>Perfil do Usuário</a></li>
+						<li><a href="/usuario/"><i class="fa fa-user fa-fw"></i>Novo Usuário</a></li>
 						<li><a href="#"><i class="fa fa-gear fa-fw"></i>Configurações</a>
 						</li>
 						<li class="divider"></li>
@@ -118,7 +118,7 @@
 								<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>
 									<ul class="nav nav-third-level">
 										<li><a href="#">Congregações</a></li>
-										<li><a href="/secretaria/relatorios/membrosContatos">Membros</a></li>
+										<li><a href="/secretaria/relatorios/membrosContatos/">Membros</a></li>
 										<li><a href="#">Famílias</a></li>
 										<li><a href="#">Visitantes</a></li>
 									</ul> <!-- /.nav-third-level --></li>
@@ -148,8 +148,8 @@
 										<li><a href="/financeiro/lancamentos/transferencias/">Transferências</a></li>
 										<li><a href="/financeiro/lancamentos/receitas/novo/">Lançamento de Receitas</a></li>
 										<li><a href="/financeiro/lancamentos/despesas/novo/">Lançamento de Despesas</a></li>
-										<li><a href="/financeiro/lancamentos/receitas/">Contas á Receber</a></li>
-										<li><a href="/financeiro/lancamentos/despesas/">Contas á Pagar</a></li>
+										<li><a href="/financeiro/lancamentos/receitas/">Contas a Receber</a></li>
+										<li><a href="/financeiro/lancamentos/despesas/">Contas a Pagar</a></li>
 									</ul> <!-- /.nav-third-level --></li>
 
 							<li><a href="#"class="fa fa-file-o"> Relatórios <span ></span></a>

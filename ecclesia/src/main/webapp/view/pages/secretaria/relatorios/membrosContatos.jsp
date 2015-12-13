@@ -11,24 +11,19 @@
 	<jsp:body>
 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">Contas Recebidas</h2>
+                        <h3 class="page-header">Listagem de Membros - Dados para Contato</h3>
                     </div>
             
                 </div>
-                        <div class="row">
-                    <div class="col-lg-12">
-                        <a href="/" class="btn btn-primary">Voltar ao Íncio</a>
-                        </br></br>
-                    </div>
-                </div>
+                       
                 
        <form:form method="POST" action="membrosContatos.do" commandName="jasperInputForm">
                
             		
             		<input type="hidden" name="rptFmt" value="PDF">
-       			    <button type="submit" class="btn btn-primary">Gerar</button>
+       			    <button type="submit" class="btn btn-primary">Gerar Relatório</button>
 					<span style="padding-left: 20px"></span>
-					<a href="/financeiro/lancamentos/receitas/" class="btn btn-primary">Cancelar</a>
+					<a href="/secretaria/cadastro/pessoa/" class="btn btn-primary">Ir para Cadadastros</a>
  
     </form:form>
                   
