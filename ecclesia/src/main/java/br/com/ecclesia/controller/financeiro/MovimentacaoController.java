@@ -59,7 +59,7 @@ public class MovimentacaoController implements Serializable{
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String salvar(@Valid MovimentaSaldo movimento, BindingResult erros, RedirectAttributes redirect, Model model) {
 		if (erros.hasErrors()) {
-			return "pages/financeiro/lancamento/transferencias/cadastro";
+			return "pages/financeiro/lancamento/transferencias/errooooooo";
 		}
 		if (movimento.getCodigo() != null) {
 			repository.alterar(movimento);

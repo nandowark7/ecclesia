@@ -64,7 +64,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Ecclesia 1.0 <span style="padding-left:460px">Assembléia de Deus - São Lourenço do Oeste SC</span></a>
+				<a class="navbar-brand" href="#">Ecclesia 1.0 <span style="padding-left:460px">Assembléia de Deus - São Lourenço do Oeste SC</span></a>
 			</div>
 			<!-- /.navbar-header -->
 
