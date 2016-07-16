@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/")  //retorna index - arrumar tela de login, alterar para novo usuario com opção de login tbm...
+	@RequestMapping("/")  //retorna index - arrumar tela de login, alterar para novo usuario com opção de login tbm......
 	public String index(){
 		return "index";
 	}
