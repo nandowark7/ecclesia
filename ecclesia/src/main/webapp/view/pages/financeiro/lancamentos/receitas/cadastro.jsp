@@ -211,7 +211,7 @@ jQuery(function($){
 					</div>
 					<div class="row">
 						<div class="form-group col-md-2">
-							<button type="button" class="btn btn-primary" onclick="adicionarParcela();">Adicionar</button>
+							<button type="button" class="btn btn-primary" onclick="adicionarParcela();">Adicionar Parcela</button>
 						</div>
 					</div>
 					
@@ -239,7 +239,7 @@ jQuery(function($){
 					</div></div>
 					
 					<input type="hidden" value="${codigo}" name="codigo" id="codigo">
-					<button type="submit" class="btn btn-primary">Confirmar</button>
+					<button type="submit" class="btn btn-primary">Gravar Lançamento</button>
 					<span style="padding-left:20px"></span>
 					<a href="/financeiro/lancamentos/receitas/" class="btn btn-primary">Cancelar</a>
 					
