@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     /**
      * Configuração do Builder de autenticação do Spring, ajustado a maneira de criptografia e também qual é o
-     * autenticado.
+     * autenticado.a
      * 
      * @param auth
      */
