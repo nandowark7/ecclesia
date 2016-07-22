@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UsuarioRepository repository;
 	
 	/**
-	 * Service utilizado para autenticar o usuário....
+	 * Service utilizado para autenticar o usuário.......
 	 */
     @Override
     @Bean
